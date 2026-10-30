@@ -1,0 +1,1866 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google" content="notranslate">
+  <title>Leonel Francisco (LRT) — Portfólio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    /* Aplicar tema antes do render para evitar flash */
+    (function(){
+      var t = localStorage.getItem('portfolio_theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+</head>
+<body>
+
+<!-- Barra de Progresso de Leitura no Topo -->
+<div id="scrollProgressBar" class="scroll-progress-bar" aria-hidden="true"></div>
+
+<!-- Canvas de Fundo Tecnológico de Rede Interativo -->
+<canvas id="networkCanvas" class="network-canvas" aria-hidden="true"></canvas>
+
+<!-- Navegação Superior -->
+<header class="nav">
+  <a href="#inicio" class="nav__logo notranslate" translate="no" title="LRT - Leonel Rachid Francisco">
+    <span class="logo-text notranslate" translate="no">LRT</span><span class="dot">.</span>
+  </a>
+
+  <div class="nav__controls">
+    <button class="lang-toggle" id="langToggle" aria-label="Alternar idioma" title="Alternar idioma (PT / EN)">
+      <span class="lang-badge" id="langBadge">EN</span>
+    </button>
+    <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema" title="Alternar modo claro / escuro">
+      <!-- Ícone Sol (visível no modo escuro) -->
+      <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="4"/>
+        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+      </svg>
+      <!-- Ícone Lua (visível no modo claro) -->
+      <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/>
+      </svg>
+    </button>
+  </div>
+
+  <nav class="nav__links" id="navLinks">
+    <a href="#inicio" data-i18n="nav-home">Início</a>
+    <a href="#sobre" data-i18n="nav-about">Sobre Mim</a>
+    <a href="#habilidades" data-i18n="nav-skills">Habilidades</a>
+    <a href="#servicos" data-i18n="nav-services">Serviços</a>
+    <a href="#terminal" data-i18n="nav-terminal">Terminal</a>
+    <a href="#dicas-html" data-i18n="nav-tips">Dicas &amp; Frases 💡</a>
+    <a href="#projectos" data-i18n="nav-projects">Projectos</a>
+    <a href="#faq" data-i18n="nav-faq">FAQ</a>
+    <a href="#contacto" data-i18n="nav-contact">Contactos</a>
+  </nav>
+
+  <button class="nav__hamburger" id="hamburger" aria-label="Menu">
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="4" x2="20" y1="12" y2="12"/>
+      <line x1="4" x2="20" y1="6" y2="6"/>
+      <line x1="4" x2="20" y1="18" y2="18"/>
+    </svg>
+  </button>
+</header>
+
+<!-- Layout Principal em 2 Colunas: Perfil à Esquerda, Conteúdo à Direita com Scroll -->
+<div class="layout-wrapper">
+
+  <!-- =========================================================
+       COLUNA DA ESQUERDA: PERFIL FIXO / STICKY
+       ========================================================= -->
+  <aside class="profile-sidebar">
+    <!-- Moldura Dark & Red idêntica à imagem de referência -->
+    <div class="profile-frame">
+      <img
+        class="profile-frame__img"
+        src="fotoperfil.jpeg"
+        onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 200%22><rect width=%22200%22 height=%22200%22 fill=%22%2327272a%22/><circle cx=%22100%22 cy=%2278%22 r=%2238%22 fill=%22%2352525b%22/><path d=%22M30 190c6-45 38-70 70-70s64 25 70 70%22 fill=%22%2352525b%22/></svg>'"
+        alt="Foto de perfil de Leonel Francisco">
+    </div>
+
+    <!-- Informações do Perfil -->
+    <div class="profile-info">
+      <h2 class="profile-name notranslate" translate="no">Leonel Francisco</h2>
+      <div class="profile-tag">
+        <span class="dot-online"></span>
+        <span class="notranslate" translate="no">LRT</span> • <span data-i18n="profile-tag-sub">Suporte &amp; Web</span>
+      </div>
+
+      <!-- Ícones de Contacto em Círculo -->
+      <div class="profile-socials">
+        <a href="mailto:leoneltamo598@gmail.com" class="social-icon" aria-label="Email" title="Email: leoneltamo598@gmail.com">
+          <svg viewBox="0 0 24 24" width="20" height="20" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="20" height="16" x="2" y="4" rx="2"/>
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+          </svg>
+        </a>
+        <a href="tel:+258847237400" class="social-icon" aria-label="Telefone" title="Telefone: +258 84 723 7400">
+          <svg viewBox="0 0 24 24" width="20" height="20" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+        </a>
+        <a href="https://wa.me/258847237400?text=Ol%C3%A1%20Leonel%2C%20vi%20o%20teu%20portf%C3%B3lio%20e%20gostaria%20de%20falar%20contigo." target="_blank" rel="noopener" class="social-icon" aria-label="WhatsApp" title="WhatsApp: +258 84 723 7400">
+          <svg viewBox="0 0 24 24" width="20" height="20" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+          </svg>
+        </a>
+        <a href="https://www.linkedin.com/in/leonel-tamo-1074b0443/" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn" title="LinkedIn: Leonel Francisco">
+          <svg viewBox="0 0 24 24" width="20" height="20" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+            <rect width="4" height="12" x="2" y="9"/>
+            <circle cx="4" cy="4" r="2"/>
+          </svg>
+        </a>
+        <a href="https://github.com/leoneltamo598-bit" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub" title="GitHub: leoneltamo598-bit">
+          <svg viewBox="0 0 24 24" width="20" height="20" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
+            <path d="M9 18c-4.51 2-5-2-7-2"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Ações Rápidas no Perfil -->
+      <div class="profile-actions">
+        <button type="button" class="btn btn--primary" id="openCvModalBtn" title="Visualizar currículo na tela">
+          <svg class="icon-inline" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          <span data-i18n="preview-cv">Ver CV</span>
+        </button>
+        <a href="Curriculum_Vitae_Leonel_Francisco.pdf" download="Curriculum_Vitae_Leonel_Francisco.pdf" class="btn btn--outline" title="Baixar CV em PDF">
+          <svg class="icon-inline" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span data-i18n="quick-cv">Baixar</span>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- =========================================================
+       COLUNA DA DIREITA: CONTEÚDO COM SCROLL
+       ========================================================= -->
+  <main class="content-scroll">
+
+    <!-- 1. Hero / Início -->
+    <section id="inicio" class="section-block hero-block">
+      <p class="hero-eyebrow">
+        <svg class="icon-inline" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="4 17 10 11 4 5"/>
+          <line x1="12" x2="20" y1="19" y2="19"/>
+        </svg>
+        <span data-i18n="hero-eyebrow">Técnico de Suporte Informático</span>
+      </p>
+
+      <h1 class="hero-title">
+        <span data-i18n="hero-greeting">Olá, sou o</span> <span class="text-red notranslate" translate="no">Leonel</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        <span data-i18n="hero-iam">Sou</span> <span class="typewriter-text" id="roleTypewriter"></span><span class="cursor">|</span>
+      </p>
+
+      <p class="hero-pitch" data-i18n="hero-pitch">
+        Estudante de CV4 em Técnico de Suporte Informático no ITC, focado em
+        montagem, manutenção, redes de computadores e desenvolvimento de páginas web.
+      </p>
+
+      <div class="hero-cta">
+        <a href="#projectos" class="btn btn--primary">
+          <svg class="icon-inline" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m6 14 1.45-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.55 6a2 2 0 0 1-1.94 1.5H4a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2h3.93a2 2 0 0 1 1.66.9l.82 1.2a2 2 0 0 0 1.66.9H18a2 2 0 0 1 2 2v2"/>
+          </svg>
+          <span data-i18n="btn-projects">Ver projectos</span>
+        </a>
+        <a href="#contacto" class="btn btn--outline">
+          <svg class="icon-inline" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="5"/>
+            <path d="M20 21a8 8 0 0 0-16 0"/>
+          </svg>
+          <span data-i18n="btn-contact">Contactar</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- 2. Sobre Mim -->
+    <section id="sobre" class="section-block">
+      <h2 class="section-title">
+        <svg class="icon-heading" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="8" r="5"/>
+          <path d="M20 21a8 8 0 0 0-16 0"/>
+        </svg>
+        <span data-i18n="about-title">Sobre Mim</span>
+      </h2>
+
+      <p class="sobre-bio" data-i18n="about-bio">
+        Formando do curso de Técnico de Suporte Informático no Instituto de Transportes e Comunicações (ITC). Tenho foco prático em montagem e manutenção de computadores, suporte ao utilizador, diagnóstico de avarias, redes de computadores e criação de páginas web estáticas com HTML e CSS.
+      </p>
+
+      <div class="table-container">
+        <h3 class="table-title">
+          <svg class="icon-inline" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="18" height="18" x="3" y="3" rx="2"/>
+            <path d="M3 9h18"/>
+            <path d="M3 15h18"/>
+            <path d="M9 3v18"/>
+          </svg>
+          <span data-i18n="table-title">Formação Académica &amp; Técnica</span>
+        </h3>
+
+        <table class="custom-table">
+          <thead>
+            <tr>
+              <th data-i18n="th-qualification">Qualificação / Nível</th>
+              <th data-i18n="th-code">Nível / Código</th>
+              <th data-i18n="th-institution">Instituição</th>
+              <th data-i18n="th-status">Situação</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Técnico de Suporte Informático</strong></td>
+              <td>CV4 — QNQP</td>
+              <td>ITC — Maputo</td>
+              <td><span class="status-badge" data-i18n="status-current">Em Curso (2026)</span></td>
+            </tr>
+            <tr>
+              <td><strong>Eletricidade Industrial</strong></td>
+              <td>CV3 — QNQP</td>
+              <td>ITC — Maputo</td>
+              <td><span class="status-badge status-badge--done" data-i18n="status-done">Concluído (2025)</span></td>
+            </tr>
+            <tr>
+              <td><strong>Ensino Secundário Geral</strong></td>
+              <td>10.ª Classe</td>
+              <td>Escola Secundária ADPP</td>
+              <td><span class="status-badge status-badge--done" data-i18n="status-done-alt">Concluído (2024)</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 4. Habilidades -->
+    <section id="habilidades" class="section-block">
+      <h2 class="section-title">
+        <svg class="icon-heading" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="16 18 22 12 16 6"/>
+          <polyline points="8 6 2 12 8 18"/>
+        </svg>
+        <span data-i18n="skills-title">Competências Técnicas</span>
+      </h2>
+
+      <div class="skills-catalog">
+        <div class="skill-card">
+          <div class="skill-card__header">
+            <div class="skill-card__icon">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="20" height="14" x="2" y="3" rx="2"/>
+                <line x1="8" x2="16" y1="21" y2="21"/>
+                <line x1="12" x2="12" y1="17" y2="21"/>
+              </svg>
+            </div>
+            <h3 data-i18n="sk1-title">Suporte Técnico &amp; Hardware</h3>
+          </div>
+          <p data-i18n="sk1-desc">Manutenção preventiva e corretiva de computadores, atendimento ao utilizador e diagnóstico ágil de avarias.</p>
+          <div class="skill-card__tags">
+            <span>Montagem de PC</span>
+            <span>Diagnóstico</span>
+            <span>Helpdesk</span>
+            <span>Backups</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-card__header">
+            <div class="skill-card__icon">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12.55a11 11 0 0 1 14.08 0"/>
+                <path d="M1.42 9a16 16 0 0 1 21.16 0"/>
+                <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
+                <line x1="12" x2="12.01" y1="20" y2="20"/>
+              </svg>
+            </div>
+            <h3 data-i18n="sk2-title">Redes &amp; Conectividade</h3>
+          </div>
+          <p data-i18n="sk2-desc">Estruturação de redes locais cabladas e sem fios, endereçamento TCP/IP e partilha de recursos.</p>
+          <div class="skill-card__tags">
+            <span>Cablagem UTP/RJ-45</span>
+            <span>TCP/IP</span>
+            <span>Routers &amp; Switches</span>
+            <span>Partilha</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-card__header">
+            <div class="skill-card__icon">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <path d="m9 12 2 2 4-4"/>
+              </svg>
+            </div>
+            <h3 data-i18n="sk3-title">Sistemas Operativos &amp; Segurança</h3>
+          </div>
+          <p data-i18n="sk3-desc">Instalação e administração de sistemas Windows e Linux, configurações de proteção e gestão de acessos.</p>
+          <div class="skill-card__tags">
+            <span>Windows 10 / 11</span>
+            <span>Linux (Ubuntu)</span>
+            <span>Antivírus</span>
+            <span>Permissões</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-card__header">
+            <div class="skill-card__icon">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6"/>
+                <polyline points="8 6 2 12 8 18"/>
+              </svg>
+            </div>
+            <h3 data-i18n="sk4-title">Desenvolvimento Web &amp; Ferramentas</h3>
+          </div>
+          <p data-i18n="sk4-desc">Criação de websites estruturados e responsivos utilizando HTML5 semântico, CSS moderno e Git.</p>
+          <div class="skill-card__tags">
+            <span>HTML5 Semântico</span>
+            <span>CSS3 Flex/Grid</span>
+            <span>Git &amp; GitHub</span>
+            <span>Packet Tracer</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4.1 Serviços Prestados -->
+    <section id="servicos" class="section-block">
+      <h2 class="section-title">
+        <svg class="icon-heading" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+        </svg>
+        <span data-i18n="services-title">Serviços Prestados</span>
+      </h2>
+
+      <div class="services-grid">
+        <!-- Serviço 1: Manutenção & Hardware -->
+        <article class="service-card">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="14" x="2" y="3" rx="2"/>
+              <line x1="8" x2="16" y1="21" y2="21"/>
+              <line x1="12" x2="12" y1="17" y2="21"/>
+            </svg>
+          </div>
+          <h3 data-i18n="srv1-title">Manutenção &amp; Hardware</h3>
+          <p data-i18n="srv1-desc">Diagnóstico rigoroso de avarias, montagem, limpeza preventiva e upgrade de performance (SSD/RAM).</p>
+          <ul class="service-card__features">
+            <li>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="srv1-f1">Diagnóstico e reparação de PCs/Laptops</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="srv1-f2">Substituição de hardware e upgrades</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="srv1-f3">Limpeza física e pasta térmica</span>
+            </li>
+          </ul>
+        </article>
+
+        <!-- Serviço 2: Redes & Infraestrutura -->
+        <article class="service-card">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12.55a11 11 0 0 1 14.08 0"/>
+              <path d="M1.42 9a16 16 0 0 1 21.16 0"/>
+              <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
+              <line x1="12" x2="12.01" y1="20" y2="20"/>
+            </svg>
+          </div>
+          <h3 data-i18n="srv2-title">Redes &amp; Infraestrutura</h3>
+          <p data-i18n="srv2-desc">Instalação de redes cabladas e sem fios, conectorização RJ-45 e configuração de periféricos partilhados.</p>
+          <ul class="service-card__features">
+            <li>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="srv2-f1">Cablagem estruturada e fichas RJ-45</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="srv2-f2">Configuração de Routers e Wi-Fi</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="srv2-f3">Partilha de impressoras e ficheiros</span>
+            </li>
+          </ul>
+        </article>
+
+        <!-- Serviço 3: Sistemas & Segurança -->
+        <article class="service-card">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <path d="m9 12 2 2 4-4"/>
+            </svg>
+          </div>
+          <h3 data-i18n="srv3-title">Sistemas &amp; Segurança</h3>
+          <p data-i18n="srv3-desc">Instalação limpa de sistemas Windows e Linux, configuração de antivírus, remoção de malware e backups.</p>
+          <ul class="service-card__features">
+            <li>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="srv3-f1">Instalação de Windows 10/11 e Ubuntu</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="srv3-f2">Remoção de vírus e malware</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="srv3-f3">Cópias de segurança e recuperação</span>
+            </li>
+          </ul>
+        </article>
+
+        <!-- Serviço 4: Desenvolvimento Web -->
+        <article class="service-card">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 18 22 12 16 6"/>
+              <polyline points="8 6 2 12 8 18"/>
+            </svg>
+          </div>
+          <h3 data-i18n="srv4-title">Desenvolvimento Web</h3>
+          <p data-i18n="srv4-desc">Criação de páginas institucionais, landing pages e portfólios responsivos com código limpo e moderno.</p>
+          <ul class="service-card__features">
+            <li>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="srv4-f1">Design responsivo (Mobile e Desktop)</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="srv4-f2">HTML5 semântico e CSS moderno</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="srv4-f3">Otimização de velocidade e acessibilidade</span>
+            </li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- 4.2 Consola de Comandos Interativa -->
+    <section id="terminal" class="section-block terminal-block">
+      <h2 class="section-title">
+        <svg class="icon-heading" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="4 17 10 11 4 5"/>
+          <line x1="12" x2="20" y1="19" y2="19"/>
+        </svg>
+        <span data-i18n="terminal-title">Consola Interativa</span>
+      </h2>
+
+      <div class="terminal-window">
+        <div class="terminal-header">
+          <div class="terminal-title">
+            <svg class="icon-inline" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="18" height="18" x="3" y="3" rx="2"/>
+              <path d="m8 10 3 3-3 3"/>
+              <line x1="13" x2="16" y1="16" y2="16"/>
+            </svg>
+            <span data-i18n="term-header-title">Painel de Comandos</span>
+          </div>
+          <button type="button" class="term-clear-btn" id="termClearBtn" title="Limpar" aria-label="Limpar">
+            <span data-i18n="term-clear">Limpar</span>
+          </button>
+        </div>
+
+        <div class="terminal-body" id="termBody">
+          <div class="term-output" data-i18n="term-welcome-msg">
+            Clica num dos comandos rápidos abaixo ou digita na caixa para consultar informações do portfólio:
+          </div>
+
+          <div class="term-quick-cmds">
+            <button type="button" class="term-pill" data-cmd="skills">skills</button>
+            <button type="button" class="term-pill" data-cmd="servicos">servicos</button>
+            <button type="button" class="term-pill" data-cmd="contacto">contacto</button>
+            <button type="button" class="term-pill" data-cmd="cv">cv</button>
+            <button type="button" class="term-pill" data-cmd="whoami">whoami</button>
+            <button type="button" class="term-pill" data-cmd="help">help</button>
+            <button type="button" class="term-pill" data-cmd="clear">clear</button>
+          </div>
+
+          <div id="termHistory"></div>
+
+          <form class="term-input-row" id="termForm" autocomplete="off">
+            <span class="term-prompt">›</span>
+            <input type="text" id="termInput" class="term-input" spellcheck="false" placeholder="digite um comando (ex: help, skills, servicos)..." aria-label="Comando">
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4.3 Pílulas de Conhecimento & Frases Web -->
+    <section id="dicas-html" class="section-block tips-block">
+      <h2 class="section-title">
+        <svg class="icon-heading" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="12" y1="16" x2="12" y2="12"/>
+          <line x1="12" y1="8" x2="12.01" y2="8"/>
+        </svg>
+        <span data-i18n="tips-title">Dicas &amp; Frases Web 💡</span>
+      </h2>
+      <p style="color:var(--text-secondary);margin-bottom:20px;" data-i18n="tips-desc">
+        Pílulas dinâmicas de conhecimento, frases inspiradoras da computação e boas práticas de desenvolvimento web e HTML5.
+      </p>
+
+      <!-- Filtros Rápidos de Categoria -->
+      <div class="tips-filter-row" id="tipsFilters">
+        <button type="button" class="tips-filter-btn active" data-cat="all" data-i18n="tips-cat-all">Todas</button>
+        <button type="button" class="tips-filter-btn" data-cat="quotes" data-i18n="tips-cat-quotes">Frases Tech</button>
+        <button type="button" class="tips-filter-btn" data-cat="semantics" data-i18n="tips-cat-semantics">Tags &amp; Semântica</button>
+        <button type="button" class="tips-filter-btn" data-cat="practices" data-i18n="tips-cat-practices">Boas Práticas</button>
+      </div>
+
+      <!-- Card Interativo de Dicas & Frases -->
+      <div class="tips-card" id="tipsCard">
+        <div class="tips-card__header">
+          <span class="tips-badge" id="tipsCategoryBadge">FRASES TECH</span>
+          <span class="tips-counter" id="tipsCounter">1 / 8</span>
+          <button type="button" class="tips-shuffle-btn" id="tipsShuffleBtn" title="Frase ou Dica Aleatória">
+            <span>🎲</span> <span data-i18n="tips-random">Aleatória</span>
+          </button>
+        </div>
+
+        <div class="tips-quote-wrap">
+          <span class="tips-quote-mark">“</span>
+          <p class="tips-quote-text" id="tipsQuoteText">A carregar...</p>
+          <div class="tips-author" id="tipsAuthor"></div>
+        </div>
+
+        <pre class="tips-code-box" id="tipsCodeBox"><code>&lt;!-- Exemplo prático --&gt;</code></pre>
+
+        <div class="tips-explanation" id="tipsExplanationWrap">
+          <div class="tips-explanation-icon">💡</div>
+          <div class="tips-explanation-text" id="tipsExplanationText">Explicação prática...</div>
+        </div>
+
+        <div class="tips-card__footer">
+          <div class="tips-nav-group">
+            <button type="button" class="tips-nav-btn" id="tipsPrevBtn">
+              ← <span data-i18n="tips-prev">Anterior</span>
+            </button>
+            <button type="button" class="tips-nav-btn" id="tipsNextBtn">
+              <span data-i18n="tips-next">Próxima</span> →
+            </button>
+          </div>
+          <button type="button" class="tips-copy-btn" id="tipsCopyBtn">
+            <svg class="icon-inline" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+            <span id="tipsCopyText" data-i18n="tips-copy">Copiar</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Projectos -->
+    <section id="projectos" class="section-block">
+      <h2 class="section-title">
+        <svg class="icon-heading" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+          <polyline points="2 17 12 22 22 17"/>
+          <polyline points="2 12 12 17 22 12"/>
+        </svg>
+        <span data-i18n="projects-title">Portfólio de Projectos</span>
+      </h2>
+
+      <!-- Filtros Dinâmicos de Projectos -->
+      <div class="project-filters" id="projectFilters">
+        <button type="button" class="filter-btn active" data-filter="all" data-i18n="filter-all">Todos (3)</button>
+        <button type="button" class="filter-btn" data-filter="web" data-i18n="filter-web">Desenvolvimento Web</button>
+        <button type="button" class="filter-btn" data-filter="pratica" data-i18n="filter-practice">Exercícios Práticos</button>
+      </div>
+
+      <div class="projectos__grid">
+        <!-- Projecto 1 -->
+        <article class="card" data-category="web pratica">
+          <a href="exercicio-formulario.html" class="card__media" title="Ver Formulário HTML">
+            <img src="formulario.jpeg" alt="Formulário HTML">
+          </a>
+          <div class="card__body">
+            <h3>
+              <svg class="icon-inline" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/>
+              </svg>
+              <a href="exercicio-formulario.html" data-i18n="card1-title">Formulário HTML</a>
+            </h3>
+            <p data-i18n="card1-desc">Formulário HTML com validação de campos e mensagem de confirmação.</p>
+          </div>
+        </article>
+
+        <!-- Projecto 2 -->
+        <article class="card" data-category="pratica">
+          <a href="exercicios-html.html" class="card__media" title="Ver Exercícios HTML">
+            <img src="html.jpeg" alt="Código HTML">
+          </a>
+          <div class="card__body">
+            <h3>
+              <svg class="icon-inline" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+              </svg>
+              <a href="exercicios-html.html" data-i18n="card2-title">Exercícios de Consolidação HTML</a>
+            </h3>
+            <p data-i18n="card2-desc">Conjunto de páginas que exploram tabelas, citações, formatação de texto e cabeçalhos em HTML puro.</p>
+          </div>
+        </article>
+
+        <!-- Projecto 3 -->
+        <article class="card" data-category="web">
+          <a href="#inicio" class="card__media" title="Este Portfólio">
+            <img src="portfolio.jpeg" onerror="this.src='portfólio.jpeg'" alt="Portfólio">
+          </a>
+          <div class="card__body">
+            <h3>
+              <svg class="icon-inline" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/>
+              </svg>
+              <a href="#inicio" data-i18n="card3-title">Este Portfólio</a>
+            </h3>
+            <p data-i18n="card3-desc">Página pessoal desenvolvida com HTML e CSS.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 5.2 FAQ: Perguntas Frequentes -->
+    <section id="faq" class="section-block faq-block">
+      <h2 class="section-title">
+        <svg class="icon-heading" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+          <line x1="12" y1="17" x2="12.01" y2="17"/>
+        </svg>
+        <span data-i18n="faq-title">Perguntas Frequentes</span>
+      </h2>
+      <div class="faq-accordion">
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span data-i18n="faq-q1">Prestas suporte técnico presencial ou remoto?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <p class="faq-answer" data-i18n="faq-a1">Presto suporte presencial em Maputo e suporte remoto via AnyDesk ou TeamViewer para diagnóstico e resolução rápida de problemas de software.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span data-i18n="faq-q2">Quanto tempo demora o diagnóstico de um computador?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <p class="faq-answer" data-i18n="faq-a2">Habitualmente entre 24 a 48 horas para diagnóstico completo. Avarias simples (vírus, lentidão, formatação) são resolvidas no próprio dia.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span data-i18n="faq-q3">Que tipo de websites desenvolves?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <p class="faq-answer" data-i18n="faq-a3">Páginas institucionais, portfólios pessoais e landing pages responsivas com HTML5 semântico, CSS moderno (Flexbox/Grid) e JavaScript puro.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span data-i18n="faq-q4">Fazes configuração de redes Wi-Fi domésticas e cablagem?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <p class="faq-answer" data-i18n="faq-a4">Sim! Configuro routers, repetidores Wi-Fi, crimpagem de cabos de rede RJ-45, partilha de impressoras e ficheiros em redes locais.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span data-i18n="faq-q5">Como posso entrar em contacto para um orçamento?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <p class="faq-answer" data-i18n="faq-a5">Podes contactar directamente via WhatsApp (+258 84 723 7400), enviar um e-mail para leoneltamo598@gmail.com, ou usar o formulário de mensagem abaixo.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- 6. Contactos -->
+    <section id="contacto" class="section-block">
+      <h2 class="section-title">
+        <svg class="icon-heading" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect width="20" height="16" x="2" y="4" rx="2"/>
+          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+        </svg>
+        <span data-i18n="contact-title">Contactos</span>
+      </h2>
+      <p class="contacto__lead" data-i18n="contact-lead">Para comunicação, parcerias ou propostas de trabalho:</p>
+
+      <div class="contacto__grid">
+        <!-- WhatsApp Direto -->
+        <a href="https://wa.me/258847237400?text=Ol%C3%A1%20Leonel%2C%20vi%20o%20teu%20portf%C3%B3lio%20e%20gostaria%20de%20falar%20contigo." target="_blank" rel="noopener" class="contacto__item contacto__item--wa" title="Conversar no WhatsApp">
+          <div class="contacto__item-icon contacto__item-icon--wa">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+            </svg>
+          </div>
+          <div class="contacto__item-info">
+            <span class="contacto__item-label">WhatsApp</span>
+            <span class="contacto__item-val">+258 84 723 7400</span>
+          </div>
+          <span class="contacto__action-badge contacto__action-badge--wa" data-i18n="contact-chat">Conversar ↗</span>
+        </a>
+
+        <!-- E-mail com Botão Copiar -->
+        <div class="contacto__item contacto__item--copy" data-copy="leoneltamo598@gmail.com" title="Clique para copiar o e-mail">
+          <div class="contacto__item-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="16" x="2" y="4" rx="2"/>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+            </svg>
+          </div>
+          <div class="contacto__item-info">
+            <span class="contacto__item-label">E-mail</span>
+            <span class="contacto__item-val">leoneltamo598@gmail.com</span>
+          </div>
+          <button type="button" class="btn-copy" aria-label="Copiar e-mail" title="Copiar e-mail">
+            <span class="copy-text" data-i18n="btn-copy">Copiar</span>
+          </button>
+        </div>
+
+        <!-- Telefone com Botão Copiar -->
+        <div class="contacto__item contacto__item--copy" data-copy="+258847237400" title="Clique para copiar o telefone">
+          <div class="contacto__item-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+          </div>
+          <div class="contacto__item-info">
+            <span class="contacto__item-label" data-i18n="contact-phone">Telefone</span>
+            <span class="contacto__item-val">+258 84 723 7400</span>
+          </div>
+          <button type="button" class="btn-copy" aria-label="Copiar telefone" title="Copiar telefone">
+            <span class="copy-text" data-i18n="btn-copy">Copiar</span>
+          </button>
+        </div>
+
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/in/leonel-tamo-1074b0443/" target="_blank" rel="noopener" class="contacto__item" title="Ver perfil no LinkedIn">
+          <div class="contacto__item-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+              <rect width="4" height="12" x="2" y="9"/>
+              <circle cx="4" cy="4" r="2"/>
+            </svg>
+          </div>
+          <div class="contacto__item-info">
+            <span class="contacto__item-label">LinkedIn</span>
+            <span class="contacto__item-val">leonel-tamo-1074b0443</span>
+          </div>
+          <span class="contacto__action-badge">Perfil ↗</span>
+        </a>
+
+        <!-- GitHub -->
+        <a href="https://github.com/leoneltamo598-bit" target="_blank" rel="noopener" class="contacto__item" title="Ver perfil no GitHub">
+          <div class="contacto__item-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
+              <path d="M9 18c-4.51 2-5-2-7-2"/>
+            </svg>
+          </div>
+          <div class="contacto__item-info">
+            <span class="contacto__item-label">GitHub</span>
+            <span class="contacto__item-val">leoneltamo598-bit</span>
+          </div>
+          <span class="contacto__action-badge">Código ↗</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- 7. Rodapé Limpo -->
+    <footer class="footer">
+      <p>&copy; 2026 Leonel Francisco — Instituto de Transportes e Comunicações (ITC).</p>
+    </footer>
+
+  </main>
+</div>
+<!-- Modal Pré-visualização CV -->
+<div id="cvModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="cvModalTitle">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div>
+        <span class="modal-tag">CURRICULUM VITAE</span>
+        <h3 id="cvModalTitle">Leonel Rachid Francisco</h3>
+      </div>
+      <button type="button" class="modal-close-btn" id="closeCvModal" aria-label="Fechar">×</button>
+    </div>
+    <div class="modal-content">
+      <div class="cv-badge-row">
+        <span class="cv-pill cv-pill--primary">CV4 — QNQP</span>
+        <span class="cv-pill">ITC — Maputo, 2026</span>
+        <span class="cv-pill">Suporte Informático</span>
+      </div>
+      <div class="cv-summary-card">
+        <h4>Perfil</h4>
+        <p>Formando em CV4 Técnico de Suporte Informático no ITC. Experiência prática em montagem/manutenção de computadores, suporte ao utilizador (helpdesk), redes locais (cablagem UTP e Wi-Fi) e desenvolvimento de páginas web responsivas.</p>
+        
+        <h4>Formação Académica &amp; Técnica</h4>
+        <ul>
+          <li><strong>Técnico de Suporte Informático</strong> — CV4, ITC Maputo (Em Curso, 2026)</li>
+          <li><strong>Eletricidade Industrial</strong> — CV3, ITC Maputo (Concluído, 2025)</li>
+          <li><strong>Ensino Secundário Geral</strong> — 10.ª Classe, Escola Secundária ADPP (Concluído, 2024)</li>
+        </ul>
+
+        <h4>Competências Principais</h4>
+        <ul>
+          <li>Montagem, diagnóstico e manutenção preventiva de computadores e portáteis</li>
+          <li>Cablagem estruturada UTP (RJ-45), configuração de routers e partilha de impressoras</li>
+          <li>Instalação e otimização de Windows 10/11, Ubuntu Linux e remoção de vírus</li>
+          <li>HTML5 semântico, CSS3 moderno (Flexbox/Grid), Git e GitHub</li>
+        </ul>
+
+        <h4>Contactos Directos</h4>
+        <ul>
+          <li>📧 leoneltamo598@gmail.com</li>
+          <li>📱 +258 84 723 7400 (Chamadas e WhatsApp)</li>
+          <li>💼 linkedin.com/in/leonel-tamo-1074b0443</li>
+          <li>💻 github.com/leoneltamo598-bit</li>
+        </ul>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <a href="Curriculum_Vitae_Leonel_Francisco.pdf" download="Curriculum_Vitae_Leonel_Francisco.pdf" class="btn btn--primary">
+        <svg class="icon-inline" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Baixar PDF
+      </a>
+      <button type="button" class="btn btn--outline" id="closeCvModal2">Fechar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Botão Flutuante Voltar ao Topo -->
+<button id="scrollTopBtn" class="scroll-top-btn" aria-label="Voltar ao topo" title="Voltar ao topo">
+  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="18 15 12 9 6 15"/>
+  </svg>
+</button>
+
+<!-- Scripts de Interatividade: Tradução PT/EN, Typewriter e Menu -->
+<script>
+  
+  // ==========================================
+  // 1. TEMA CLARO / ESCURO (Inicialização Imediata)
+  // ==========================================
+  const themeToggle = document.getElementById('themeToggle');
+  
+  function getPreferredTheme() {
+    return localStorage.getItem('portfolio_theme') || 'dark';
+  }
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('portfolio_theme', theme);
+  }
+
+  // Garante aplicação imediata
+  applyTheme(getPreferredTheme());
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const next = current === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+    });
+  }
+
+  // ==========================================
+  // 2. IDIOMA & TEXTOS (PT / EN)
+  // ==========================================
+  const translations = {
+    pt: {
+      "nav-home": "Início",
+      "nav-about": "Sobre Mim",
+      "nav-skills": "Habilidades",
+      "nav-projects": "Projectos",
+      "nav-contact": "Contactos",
+      "profile-tag-sub": "Suporte & Web",
+      "quick-cv": "Baixar CV",
+      "hero-eyebrow": "Técnico de Suporte Informático",
+      "hero-greeting": "Olá, sou o",
+      "hero-iam": "Sou",
+      "hero-pitch": "Estudante de CV4 em Técnico de Suporte Informático no ITC, focado em montagem, manutenção, redes de computadores e desenvolvimento de páginas web.",
+      "btn-projects": "Ver projectos",
+      "btn-contact": "Contactar",
+      "about-title": "Sobre Mim",
+      "about-bio": "Formando do curso de Técnico de Suporte Informático no Instituto de Transportes e Comunicações (ITC). Tenho foco prático em montagem e manutenção de computadores, suporte ao utilizador, diagnóstico de avarias, redes de computadores e criação de páginas web estáticas com HTML e CSS.",
+      "table-title": "Formação Académica & Técnica",
+      "th-qualification": "Qualificação / Nível",
+      "th-code": "Nível / Código",
+      "th-institution": "Instituição",
+      "th-status": "Situação",
+      "status-current": "Em Curso (2026)",
+      "status-done": "Concluído (2025)",
+      "status-done-alt": "Concluído (2024)",
+      "skills-title": "Competências Técnicas",
+      "sk1-title": "Suporte Técnico & Hardware",
+      "sk1-desc": "Manutenção preventiva e corretiva de computadores, atendimento ao utilizador e diagnóstico ágil de avarias.",
+      "sk2-title": "Redes & Conectividade",
+      "sk2-desc": "Estruturação de redes locais cabladas e sem fios, endereçamento TCP/IP e partilha de recursos.",
+      "sk3-title": "Sistemas Operativos & Segurança",
+      "sk3-desc": "Instalação e administração de sistemas Windows e Linux, configurações de proteção e gestão de acessos.",
+      "sk4-title": "Desenvolvimento Web & Ferramentas",
+      "sk4-desc": "Criação de websites estruturados e responsivos utilizando HTML5 semântico, CSS moderno e Git.",
+      "projects-title": "Portfólio de Projectos",
+      "card1-title": "Formulário HTML",
+      "card1-desc": "Formulário HTML com validação de campos e mensagem de confirmação.",
+      "card2-title": "Exercícios de Consolidação HTML",
+      "card2-desc": "Conjunto de páginas que exploram tabelas, citações, formatação de texto e cabeçalhos em HTML puro.",
+      "card3-title": "Este Portfólio",
+      "card3-desc": "Página pessoal desenvolvida com HTML e CSS.",
+      "contact-title": "Contactos",
+      "contact-lead": "Para comunicação, parcerias ou propostas de trabalho:",
+      "contact-phone": "Telefone",
+      "nav-services": "Serviços",
+      "services-title": "Serviços Prestados",
+      "srv1-title": "Manutenção & Hardware",
+      "srv1-desc": "Diagnóstico rigoroso de avarias, montagem, limpeza preventiva e upgrade de performance (SSD/RAM).",
+      "srv1-f1": "Diagnóstico e reparação de PCs/Laptops",
+      "srv1-f2": "Substituição de hardware e upgrades",
+      "srv1-f3": "Limpeza física e pasta térmica",
+      "srv2-title": "Redes & Infraestrutura",
+      "srv2-desc": "Instalação de redes cabladas e sem fios, conectorização RJ-45 e configuração de periféricos partilhados.",
+      "srv2-f1": "Cablagem estruturada e fichas RJ-45",
+      "srv2-f2": "Configuração de Routers e Wi-Fi",
+      "srv2-f3": "Partilha de impressoras e ficheiros",
+      "srv3-title": "Sistemas & Segurança",
+      "srv3-desc": "Instalação limpa de sistemas Windows e Linux, configuração de antivírus, remoção de malware e backups.",
+      "srv3-f1": "Instalação de Windows 10/11 e Ubuntu",
+      "srv3-f2": "Remoção de vírus e malware",
+      "srv3-f3": "Cópias de segurança e recuperação",
+      "srv4-title": "Desenvolvimento Web",
+      "srv4-desc": "Criação de páginas institucionais, landing pages e portfólios responsivos com código limpo e moderno.",
+      "srv4-f1": "Design responsivo (Mobile e Desktop)",
+      "srv4-f2": "HTML5 semântico e CSS moderno",
+      "srv4-f3": "Otimização de velocidade e acessibilidade",
+      "contact-chat": "Conversar ↗",
+      "btn-copy": "Copiar",
+      "nav-terminal": "Terminal",
+      "terminal-title": "Consola Interativa",
+      "term-header-title": "Painel de Comandos",
+      "term-clear": "Limpar",
+      "term-welcome-msg": "Clica num dos comandos rápidos abaixo ou digita na caixa para consultar informações do portfólio:",
+      "nav-tips": "Dicas & Frases 💡",
+      "tips-title": "Dicas & Frases Web 💡",
+      "tips-desc": "Pílulas dinâmicas de conhecimento, frases inspiradoras da computação e boas práticas de desenvolvimento web e HTML5.",
+      "tips-cat-all": "Todas",
+      "tips-cat-quotes": "Frases Tech",
+      "tips-cat-semantics": "Tags & Semântica",
+      "tips-cat-practices": "Boas Práticas",
+      "tips-random": "Aleatória",
+      "tips-prev": "Anterior",
+      "tips-next": "Próxima",
+      "tips-copy": "Copiar",
+      "nav-faq": "FAQ",
+      "preview-cv": "Ver CV",
+      "faq-title": "Perguntas Frequentes",
+      "faq-q1": "Prestas suporte técnico presencial ou remoto?",
+      "faq-a1": "Presto suporte presencial em Maputo e suporte remoto via AnyDesk ou TeamViewer para diagnóstico e resolução rápida de problemas de software.",
+      "faq-q2": "Quanto tempo demora o diagnóstico de um computador?",
+      "faq-a2": "Habitualmente entre 24 a 48 horas para diagnóstico completo. Avarias simples (vírus, lentidão, formatação) são resolvidas no próprio dia.",
+      "faq-q3": "Que tipo de websites desenvolves?",
+      "faq-a3": "Páginas institucionais, portfólios pessoais e landing pages responsivas com HTML5 semântico, CSS moderno (Flexbox/Grid) e JavaScript puro.",
+      "faq-q4": "Fazes configuração de redes Wi-Fi domésticas e cablagem?",
+      "faq-a4": "Sim! Configuro routers, repetidores Wi-Fi, crimpagem de cabos de rede RJ-45, partilha de impressoras e ficheiros em redes locais.",
+      "faq-q5": "Como posso entrar em contacto para um orçamento?",
+      "faq-a5": "Podes contactar directamente via WhatsApp (+258 84 723 7400) ou enviar um e-mail para leoneltamo598@gmail.com.",
+      "filter-all": "Todos (3)",
+      "filter-web": "Desenvolvimento Web",
+      "filter-practice": "Exercícios Práticos"
+    },
+    en: {
+      "nav-home": "Home",
+      "nav-about": "About Me",
+      "nav-skills": "Skills",
+      "nav-projects": "Projects",
+      "nav-contact": "Contact",
+      "profile-tag-sub": "Support & Web",
+      "quick-cv": "Download CV",
+      "hero-eyebrow": "IT Support Technician",
+      "hero-greeting": "Hi, It's",
+      "hero-iam": "I'm a",
+      "hero-pitch": "CV4 IT Support Technician student at ITC, focused on hardware maintenance, computer networks, and modern web development.",
+      "btn-projects": "View projects",
+      "btn-contact": "Contact",
+      "about-title": "About Me",
+      "about-bio": "IT Support Technician trainee at Instituto de Transportes e Comunicações (ITC). Hands-on experience in PC assembly and maintenance, user support, troubleshooting, local networks, and building static web pages with HTML and CSS.",
+      "table-title": "Academic & Technical Education",
+      "th-qualification": "Qualification / Level",
+      "th-code": "Level / Code",
+      "th-institution": "Institution",
+      "th-status": "Status",
+      "status-current": "In Progress (2026)",
+      "status-done": "Completed (2025)",
+      "status-done-alt": "Completed (2024)",
+      "skills-title": "Technical Competencies",
+      "sk1-title": "Technical Support & Hardware",
+      "sk1-desc": "Preventive and corrective computer maintenance, troubleshooting, and helpdesk support.",
+      "sk2-title": "Networking & Connectivity",
+      "sk2-desc": "Local network cabling, IP configuration, and resource sharing.",
+      "sk3-title": "Operating Systems & Security",
+      "sk3-desc": "Installation and setup of desktop systems with security best practices.",
+      "sk4-title": "Web Development & Tools",
+      "sk4-desc": "Building structured, responsive web pages using modern web standards.",
+      "projects-title": "Project Portfolio",
+      "card1-title": "HTML Form",
+      "card1-desc": "HTML form with input validation and confirmation message.",
+      "card2-title": "HTML Consolidation Exercises",
+      "card2-desc": "Set of pages exploring tables, quotations, text styling, and headings in pure HTML.",
+      "card3-title": "This Portfolio",
+      "card3-desc": "Personal website built with HTML and CSS.",
+      "contact-title": "Contact",
+      "contact-lead": "For communication, partnerships, or work inquiries:",
+      "contact-phone": "Phone",
+      "nav-services": "Services",
+      "services-title": "Provided Services",
+      "srv1-title": "Maintenance & Hardware",
+      "srv1-desc": "Thorough troubleshooting, PC assembly, preventive cleaning, and performance upgrades (SSD/RAM).",
+      "srv1-f1": "PC & Laptop diagnosis and repair",
+      "srv1-f2": "Hardware replacements & upgrades",
+      "srv1-f3": "Deep cleaning & thermal paste renewal",
+      "srv2-title": "Networking & Infrastructure",
+      "srv2-desc": "Wired and wireless network setup, RJ-45 crimping, router configuration, and shared network resources.",
+      "srv2-f1": "Structured cabling & RJ-45 crimping",
+      "srv2-f2": "Router & Wi-Fi configuration",
+      "srv2-f3": "Printer & local file sharing",
+      "srv3-title": "Systems & Security",
+      "srv3-desc": "Clean OS installations (Windows/Linux), antivirus configuration, malware removal, and reliable backups.",
+      "srv3-f1": "Windows 10/11 & Ubuntu installations",
+      "srv3-f2": "Virus & malware disinfection",
+      "srv3-f3": "Data backups & system restore",
+      "srv4-title": "Web Development",
+      "srv4-desc": "Building modern, responsive landing pages and personal websites with clean, fast code.",
+      "srv4-f1": "Mobile & desktop responsive design",
+      "srv4-f2": "Semantic HTML5 & modern CSS",
+      "srv4-f3": "Speed & accessibility optimization",
+      "contact-chat": "Chat ↗",
+      "btn-copy": "Copy",
+      "nav-terminal": "Terminal",
+      "terminal-title": "Interactive Console",
+      "term-header-title": "Command Panel",
+      "term-clear": "Clear",
+      "term-welcome-msg": "Click any quick command below or type in the input to explore portfolio details:",
+      "nav-tips": "Tips & Quotes 💡",
+      "tips-title": "Web Tips & Quotes 💡",
+      "tips-desc": "Dynamic knowledge pills, inspiring computing quotes, and core HTML5 web development best practices.",
+      "tips-cat-all": "All",
+      "tips-cat-quotes": "Tech Quotes",
+      "tips-cat-semantics": "Tags & Semantics",
+      "tips-cat-practices": "Best Practices",
+      "tips-random": "Random",
+      "tips-prev": "Previous",
+      "tips-next": "Next",
+      "tips-copy": "Copy",
+      "nav-faq": "FAQ",
+      "preview-cv": "View CV",
+      "faq-title": "Frequently Asked Questions",
+      "faq-q1": "Do you provide on-site or remote IT support?",
+      "faq-a1": "I provide on-site technical support across Maputo and remote support via AnyDesk or TeamViewer for swift software troubleshooting.",
+      "faq-q2": "How long does a computer diagnosis take?",
+      "faq-a2": "Usually 24 to 48 hours for a thorough checkup. Common issues (malware, sluggish performance, clean OS setup) are fixed within the same day.",
+      "faq-q3": "What kind of websites do you build?",
+      "faq-a3": "Institutional websites, personal portfolios, and responsive landing pages built with semantic HTML5, modern CSS (Flexbox/Grid), and vanilla JavaScript.",
+      "faq-q4": "Do you configure home/office Wi-Fi and network cabling?",
+      "faq-a4": "Yes! I configure routers, Wi-Fi extenders, RJ-45 Ethernet crimping, printer sharing, and local file sharing networks.",
+      "faq-q5": "How can I get in touch for a quote?",
+      "faq-a5": "You can reach out directly via WhatsApp (+258 84 723 7400) or email leoneltamo598@gmail.com.",
+      "filter-all": "All (3)",
+      "filter-web": "Web Development",
+      "filter-practice": "Practical Exercises"
+    }
+  };
+
+  const rolesByLang = {
+    pt: [
+      "Técnico de Suporte Informático",
+      "Desenvolvedor Web",
+      "Administrador de Redes Locais"
+    ],
+    en: [
+      "Web Designer",
+      "IT Support Technician",
+      "Network Administrator"
+    ]
+  };
+
+  // Declaração de variáveis do Typewriter ANTES de usar
+  const roleEl = document.getElementById('roleTypewriter');
+  let currentRoleIdx = 0;
+  let charIdx = 0;
+  let isDeleting = false;
+
+  let currentLang = localStorage.getItem('portfolio_lang') || 'pt';
+  const langBadge = document.getElementById('langBadge');
+  const langToggle = document.getElementById('langToggle');
+
+  function applyLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem('portfolio_lang', lang);
+    document.documentElement.setAttribute('lang', lang);
+
+    if (langBadge) {
+      langBadge.textContent = lang === 'pt' ? 'EN' : 'PT';
+    }
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (translations[lang] && translations[lang][key]) {
+        el.textContent = translations[lang][key];
+      }
+    });
+
+    // Resetar typewriter para o novo idioma
+    currentRoleIdx = 0;
+    charIdx = 0;
+    isDeleting = false;
+  }
+
+  if (langToggle) {
+    langToggle.addEventListener('click', () => {
+      applyLanguage(currentLang === 'pt' ? 'en' : 'pt');
+    });
+  }
+
+  applyLanguage(currentLang);
+
+  // ==========================================
+  // 3. Efeito Typewriter
+  // ==========================================
+  function typeEffect() {
+    if (!roleEl) return;
+    const roles = rolesByLang[currentLang] || rolesByLang.pt;
+    const currentText = roles[currentRoleIdx % roles.length];
+
+    if (isDeleting) {
+      charIdx--;
+      roleEl.textContent = currentText.substring(0, charIdx);
+    } else {
+      charIdx++;
+      roleEl.textContent = currentText.substring(0, charIdx);
+    }
+
+    let speed = isDeleting ? 45 : 90;
+
+    if (!isDeleting && charIdx === currentText.length) {
+      speed = 1800; // pausa ao terminar de digitar
+      isDeleting = true;
+    } else if (isDeleting && charIdx === 0) {
+      isDeleting = false;
+      currentRoleIdx++;
+      speed = 350; // pausa antes de começar a próxima
+    }
+
+    setTimeout(typeEffect, speed);
+  }
+
+  typeEffect();
+
+  // ==========================================
+  // 4. Menu Mobile
+  // ==========================================
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('nav__links--open');
+      const isOpen = navLinks.classList.contains('nav__links--open');
+      hamburger.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('nav__links--open');
+      });
+    });
+  }
+
+  // ==========================================
+  // 5. Destacar link ativo conforme scroll
+  // ==========================================
+  const sections = document.querySelectorAll('section[id]');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    const scrollY = window.pageYOffset;
+    sections.forEach(section => {
+      const sectionHeight = section.offsetHeight;
+      const sectionTop = section.offsetTop - 120;
+      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+        current = section.getAttribute('id');
+      }
+    });
+
+    if (navLinks) {
+      navLinks.querySelectorAll('a').forEach(a => {
+        a.classList.remove('active');
+        if (a.getAttribute('href') === `#${current}`) {
+          a.classList.add('active');
+        }
+      });
+    }
+  });
+
+  // ==========================================
+  // 6. Botões de Copiar Contacto (com Feedback Visual)
+  // ==========================================
+  document.querySelectorAll('.contacto__item--copy').forEach(item => {
+    const btn = item.querySelector('.btn-copy');
+    const copyText = item.getAttribute('data-copy');
+
+    function triggerCopy(e) {
+      if (e) e.preventDefault();
+      if (!copyText) return;
+
+      const finishFeedback = () => {
+        const span = btn ? btn.querySelector('.copy-text') : null;
+        if (span && btn) {
+          span.textContent = currentLang === 'en' ? 'Copied! ✓' : 'Copiado! ✓';
+          btn.classList.add('btn-copy--success');
+          setTimeout(() => {
+            span.textContent = (translations[currentLang] && translations[currentLang]['btn-copy']) || 'Copiar';
+            btn.classList.remove('btn-copy--success');
+          }, 2000);
+        }
+      };
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(copyText).then(finishFeedback).catch(() => {
+          fallbackCopy();
+        });
+      } else {
+        fallbackCopy();
+      }
+
+      function fallbackCopy() {
+        const temp = document.createElement('input');
+        temp.value = copyText;
+        document.body.appendChild(temp);
+        temp.select();
+        try { document.execCommand('copy'); } catch(err) {}
+        document.body.removeChild(temp);
+        finishFeedback();
+      }
+    }
+
+    if (btn) {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        triggerCopy(e);
+      });
+    }
+
+    item.addEventListener('click', (e) => {
+      // Se não clicou no próprio botão, copia ao clicar no cartão
+      triggerCopy(e);
+    });
+  });
+
+  // ==========================================
+  // 7. Fundo Tecnológico de Rede Interativo (Canvas)
+  // ==========================================
+  (function initNetworkCanvas() {
+    const canvas = document.getElementById('networkCanvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let width = canvas.width = window.innerWidth;
+    let height = canvas.height = window.innerHeight;
+
+    let mouse = { x: null, y: null, maxDist: 150 };
+    window.addEventListener('mousemove', e => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+    });
+    window.addEventListener('mouseleave', () => {
+      mouse.x = null;
+      mouse.y = null;
+    });
+
+    window.addEventListener('resize', () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    });
+
+    const numPoints = Math.min(width > 768 ? 45 : 22, 55);
+    const points = [];
+    for (let i = 0; i < numPoints; i++) {
+      points.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.65,
+        vy: (Math.random() - 0.5) * 0.65,
+        radius: Math.random() * 1.6 + 1
+      });
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+
+      const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+      const dotColor = isDark ? 'rgba(255, 43, 52, 0.75)' : 'rgba(255, 43, 52, 0.5)';
+      const lineColor = isDark ? 'rgba(255, 43, 52, ' : 'rgba(210, 30, 40, ';
+
+      for (let i = 0; i < points.length; i++) {
+        const p = points[i];
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < 0 || p.x > width) p.vx *= -1;
+        if (p.y < 0 || p.y > height) p.vy *= -1;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = dotColor;
+        ctx.fill();
+
+        for (let j = i + 1; j < points.length; j++) {
+          const p2 = points[j];
+          const dx = p.x - p2.x;
+          const dy = p.y - p2.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < 125) {
+            const alpha = (1 - dist / 125) * (isDark ? 0.28 : 0.16);
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.strokeStyle = lineColor + alpha + ')';
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
+        }
+
+        if (mouse.x !== null) {
+          const dx = p.x - mouse.x;
+          const dy = p.y - mouse.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < mouse.maxDist) {
+            const alpha = (1 - dist / mouse.maxDist) * 0.45;
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(mouse.x, mouse.y);
+            ctx.strokeStyle = isDark ? `rgba(0, 255, 102, ${alpha})` : `rgba(0, 180, 80, ${alpha})`;
+            ctx.lineWidth = 1.2;
+            ctx.stroke();
+          }
+        }
+      }
+
+      requestAnimationFrame(animate);
+    }
+    requestAnimationFrame(animate);
+  })();
+
+
+  // ==========================================
+  // 9. Filtro Dinâmico de Projetos
+  // ==========================================
+  (function initProjectFilters() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.projectos__grid .card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.getAttribute('data-filter');
+
+        projectCards.forEach(card => {
+          const category = card.getAttribute('data-category') || '';
+          if (filter === 'all' || category.includes(filter)) {
+            card.classList.remove('card--hidden');
+          } else {
+            card.classList.add('card--hidden');
+          }
+        });
+      });
+    });
+  })();
+
+  // ==========================================
+  // 10. Terminal Interativo CLI
+  // ==========================================
+  (function initTerminal() {
+    const form = document.getElementById('termForm');
+    const input = document.getElementById('termInput');
+    const history = document.getElementById('termHistory');
+    const clearBtn = document.getElementById('termClearBtn');
+    const termBody = document.getElementById('termBody');
+
+    if (!form || !input || !history) return;
+
+    const commands = {
+      help: () => `<strong>COMANDOS DISPONÍVEIS:</strong><br>
+• <span class="term-cmd">skills</span>   - Listar competências técnicas<br>
+• <span class="term-cmd">servicos</span> - Ver serviços prestados<br>
+• <span class="term-cmd">contacto</span> - Contactos e link do WhatsApp<br>
+• <span class="term-cmd">cv</span>       - Baixar o currículo em PDF<br>
+• <span class="term-cmd">whoami</span>   - Perfil do desenvolvedor<br>
+• <span class="term-cmd">date</span>     - Ver data e hora atual<br>
+• <span class="term-cmd">clear</span>    - Limpar o ecrã`,
+
+      skills: () => `<strong>COMPETÊNCIAS TÉCNICAS (ITC):</strong><br>
+[1] Suporte &amp; Hardware : Montagem de PC, Diagnóstico, Limpeza, Upgrades<br>
+[2] Redes &amp; Conexões   : Cablagem UTP (RJ-45), Routers, Wi-Fi, TCP/IP<br>
+[3] Sistemas &amp; Seg.    : Windows 10/11, Ubuntu Linux, Antivírus, Backups<br>
+[4] Desenvolvimento Web: HTML5 Semântico, CSS Moderno, Flexbox/Grid, Git`,
+
+      servicos: () => `<strong>SERVIÇOS PRESTADOS:</strong><br>
+✓ Manutenção preventiva e reparação de PCs/Laptops<br>
+✓ Cablagem estruturada e configuração de redes locais<br>
+✓ Instalação e otimização de Windows e Linux<br>
+✓ Criação de páginas e portfólios web modernos`,
+
+      services: () => `<strong>SERVICES PROVIDED:</strong><br>
+✓ Preventive maintenance &amp; repair of PCs/Laptops<br>
+✓ Structured cabling &amp; local network setup<br>
+✓ Windows and Linux installation and optimization<br>
+✓ Modern responsive web page and portfolio creation`,
+
+      contacto: () => `<strong>CONTACTOS DIRECTOS:</strong><br>
+• E-mail   : <a href="mailto:leoneltamo598@gmail.com" style="color:#38bdf8;text-decoration:underline;">leoneltamo598@gmail.com</a><br>
+• Telefone : +258 84 723 7400<br>
+• WhatsApp : <a href="https://wa.me/258847237400" target="_blank" style="color:#25d366;text-decoration:underline;">+258 84 723 7400 (Conversar)</a><br>
+• LinkedIn : leonel-tamo-1074b0443<br>
+• GitHub   : leoneltamo598-bit`,
+
+      contact: () => `<strong>DIRECT CONTACTS:</strong><br>
+• E-mail   : <a href="mailto:leoneltamo598@gmail.com" style="color:#38bdf8;text-decoration:underline;">leoneltamo598@gmail.com</a><br>
+• Phone    : +258 84 723 7400<br>
+• WhatsApp : <a href="https://wa.me/258847237400" target="_blank" style="color:#25d366;text-decoration:underline;">+258 84 723 7400 (Chat)</a>`,
+
+      cv: () => `Descarregar currículo: <a href="Curriculum_Vitae_Leonel_Francisco.pdf" download="Curriculum_Vitae_Leonel_Francisco.pdf" style="color:var(--lime-hover);font-weight:700;text-decoration:underline;">[Clique aqui para transferir o ficheiro PDF]</a>`,
+
+      whoami: () => `Leonel Rachid Francisco (LRT)<br>
+Formando em CV4 Técnico de Suporte Informático &amp; Desenvolvedor Web.<br>
+Instituição: Instituto de Transportes e Comunicações (ITC) — Maputo.`,
+
+      date: () => new Date().toLocaleString(),
+
+      clear: () => {
+        history.innerHTML = '';
+        return null;
+      }
+    };
+
+    function runCommand(cmdText) {
+      const clean = cmdText.trim().toLowerCase();
+      if (!clean) return;
+
+      if (clean === 'clear' || clean === 'cls') {
+        history.innerHTML = '';
+        return;
+      }
+
+      const line = document.createElement('div');
+      line.className = 'term-line';
+      line.innerHTML = `<span class="term-prompt">›</span> <span class="term-cmd">${escapeHtml(cmdText)}</span>`;
+      history.appendChild(line);
+
+      const res = document.createElement('div');
+      res.className = 'term-res-block';
+
+      if (commands[clean]) {
+        const output = commands[clean]();
+        if (output !== null) {
+          res.innerHTML = output;
+          history.appendChild(res);
+        }
+      } else {
+        res.innerHTML = `Comando não reconhecido: "<strong>${escapeHtml(clean)}</strong>". Digite <span class="term-cmd">help</span> para ver a lista de comandos.`;
+        history.appendChild(res);
+      }
+
+      termBody.scrollTop = termBody.scrollHeight;
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const val = input.value;
+      input.value = '';
+      runCommand(val);
+    });
+
+    document.querySelectorAll('.term-pill').forEach(pill => {
+      pill.addEventListener('click', () => {
+        const cmd = pill.getAttribute('data-cmd');
+        runCommand(cmd);
+      });
+    });
+
+    if (clearBtn) {
+      clearBtn.addEventListener('click', () => {
+        history.innerHTML = '';
+        input.focus();
+      });
+    }
+  })();
+
+  // ==========================================
+  // 11. Efeito 3D Tilt suave nos cartões (Desktop / Não-Touch)
+  // ==========================================
+  (function initCardTilt() {
+    if (window.matchMedia('(pointer: coarse)').matches) return;
+
+    const cards = document.querySelectorAll('.card, .skill-card, .service-card, .tips-card');
+    cards.forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const midX = rect.width / 2;
+        const midY = rect.height / 2;
+        const rotX = ((y - midY) / midY) * -5;
+        const rotY = ((x - midX) / midX) * 5;
+        card.style.transform = `perspective(800px) rotateX(${rotX.toFixed(2)}deg) rotateY(${rotY.toFixed(2)}deg) translateY(-4px)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+      });
+    });
+  })();
+
+  // ==========================================
+  // 12. Barra de Progresso de Leitura no Topo
+  // ==========================================
+  window.addEventListener('scroll', () => {
+    const bar = document.getElementById('scrollProgressBar');
+    if (bar) {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';
+    }
+  });
+
+  // ==========================================
+  // 13. Botão Flutuante Voltar ao Topo
+  // ==========================================
+  const scrollTopBtn = document.getElementById('scrollTopBtn');
+  window.addEventListener('scroll', () => {
+    if (scrollTopBtn) {
+      const scrollY = window.scrollY || document.documentElement.scrollTop;
+      scrollTopBtn.classList.toggle('scroll-top-btn--visible', scrollY > 350);
+    }
+  });
+  if (scrollTopBtn) {
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // ==========================================
+  // 14. Modal de Visualização do Currículo (CV)
+  // ==========================================
+  const cvModal = document.getElementById('cvModal');
+  const openCvBtn = document.getElementById('openCvModalBtn');
+  const closeCvBtns = [document.getElementById('closeCvModal'), document.getElementById('closeCvModal2')];
+
+  if (openCvBtn && cvModal) {
+    openCvBtn.addEventListener('click', () => {
+      cvModal.classList.add('modal-backdrop--open');
+      document.body.style.overflow = 'hidden';
+    });
+  }
+
+  closeCvBtns.forEach(btn => {
+    if (btn && cvModal) {
+      btn.addEventListener('click', () => {
+        cvModal.classList.remove('modal-backdrop--open');
+        document.body.style.overflow = '';
+      });
+    }
+  });
+
+  if (cvModal) {
+    cvModal.addEventListener('click', (e) => {
+      if (e.target === cvModal) {
+        cvModal.classList.remove('modal-backdrop--open');
+        document.body.style.overflow = '';
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && cvModal.classList.contains('modal-backdrop--open')) {
+        cvModal.classList.remove('modal-backdrop--open');
+        document.body.style.overflow = '';
+      }
+    });
+  }
+
+  // ==========================================
+  // 15. Pílulas de Conhecimento, Dicas & Frases Web
+  // ==========================================
+  (function initTipsAndQuotes() {
+    const badgeEl = document.getElementById('tipsCategoryBadge');
+    const counterEl = document.getElementById('tipsCounter');
+    const quoteTextEl = document.getElementById('tipsQuoteText');
+    const authorEl = document.getElementById('tipsAuthor');
+    const codeBoxEl = document.getElementById('tipsCodeBox');
+    const expTextEl = document.getElementById('tipsExplanationText');
+    const prevBtn = document.getElementById('tipsPrevBtn');
+    const nextBtn = document.getElementById('tipsNextBtn');
+    const shuffleBtn = document.getElementById('tipsShuffleBtn');
+    const copyBtn = document.getElementById('tipsCopyBtn');
+    const copyTextEl = document.getElementById('tipsCopyText');
+    const filterBtns = document.querySelectorAll('.tips-filter-btn');
+
+    if (!quoteTextEl || !codeBoxEl) return;
+
+    const data = {
+      pt: [
+        {
+          cat: "quotes",
+          badge: "FILOSOFIA WEB",
+          quote: "A Web não conecta apenas computadores, conecta pessoas.",
+          author: "— Tim Berners-Lee (Criador do HTML & World Wide Web)",
+          code: "<!-- A essência da Web é a partilha universal e aberta -->\n<a href=\"https://www.w3.org\" target=\"_blank\" rel=\"noopener\">\n  Explorar a Web Aberta\n</a>",
+          exp: "Toda página web existe para facilitar o acesso à informação a partir de qualquer dispositivo, lugar ou velocidade de conexão."
+        },
+        {
+          cat: "semantics",
+          badge: "TAGS & SEMÂNTICA",
+          quote: "Código semântico é código que se explica a si próprio sem precisar de truques.",
+          author: "— Princípio da Semântica HTML5",
+          code: "<header> <!-- Cabeçalho principal -->\n  <nav> <!-- Bloco de navegação --> </nav>\n</header>\n<main> <!-- Conteúdo único da página --> </main>\n<footer> <!-- Rodapé institucional --> </footer>",
+          exp: "Usar tags como <header>, <nav>, <main> e <footer> orienta o Google na indexação e permite que ferramentas de acessibilidade guiem o utilizador perfeitamente."
+        },
+        {
+          cat: "practices",
+          badge: "ACESSIBILIDADE",
+          quote: "Acessibilidade não é um extra: é o alicerce fundamental da web moderna.",
+          author: "— W3C Web Accessibility Initiative",
+          code: "<!-- Nunca deixes o atributo alt vazio em imagens com conteúdo -->\n<img src=\"servidor.jpg\" alt=\"Rack de servidores com cablagem UTP instalada no ITC\">",
+          exp: "O atributo 'alt' descreve o que está na foto para leitores de tela usados por pessoas invisuais e serve de fallback se a conexão falhar."
+        },
+        {
+          cat: "quotes",
+          badge: "FRASES TECH",
+          quote: "Falar é fácil. Mostra-me o código.",
+          author: "— Linus Torvalds (Criador do Linux & Git)",
+          code: "git init\ngit add .\ngit commit -m \"feat: portfólio profissional finalizado\"\ngit push origin main",
+          exp: "Em suporte e desenvolvimento, o controlo de versões com Git é a forma mais sólida e profissional de demonstrar prática e consistência."
+        },
+        {
+          cat: "semantics",
+          badge: "FORMULÁRIOS",
+          quote: "Formulários bem estruturados protegem os dados e evitam erros antes de chegarem ao servidor.",
+          author: "— Boas Práticas de Formulários HTML5",
+          code: "<form action=\"/contacto\" method=\"POST\">\n  <label for=\"email\">E-mail do Cliente:</label>\n  <input type=\"email\" id=\"email\" required placeholder=\"nome@empresa.com\">\n</form>",
+          exp: "O tipo 'email' e o atributo 'required' fornecem validação nativa sem necessidade de scripts pesados, funcionando logo no telemóvel."
+        },
+        {
+          cat: "practices",
+          badge: "RESPONSIVIDADE",
+          quote: "Um website moderno molda-se ao utilizador, do bolso ao monitor gigante.",
+          author: "— Responsive Web Design",
+          code: "<!-- Tag indispensável para telemóveis no <head> -->\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+          exp: "Sem esta metatag, os navegadores mobile exibem a página encolhida como no desktop. Com ela, a largura adapta-se 100% à tela física do celular."
+        },
+        {
+          cat: "quotes",
+          badge: "ENGENHARIA TECH",
+          quote: "A simplicidade é o último grau de sofisticação.",
+          author: "— Leonardo da Vinci / Princípio do Clean Code",
+          code: "/* Menos código desnecessário, mais velocidade e robustez */\n* { box-sizing: border-box; margin: 0; padding: 0; }",
+          exp: "Código sem excessos carrega quase instantaneamente, consome menos dados móveis e é mais fácil de manter por qualquer equipa técnica."
+        },
+        {
+          cat: "practices",
+          badge: "CODIFICAÇÃO",
+          quote: "A integridade dos dados começa na definição correta do conjunto de caracteres.",
+          author: "— Suporte Técnico & Padrões Web",
+          code: "<!-- Suporte universal a acentos, cedilhas e emojis -->\n<meta charset=\"UTF-8\">",
+          exp: "Garante que palavras como 'portfólio', 'comunicações' e caracteres técnicos apareçam sem caracteres estranhos em qualquer browser do mundo."
+        }
+      ],
+      en: [
+        {
+          cat: "quotes",
+          badge: "WEB PHILOSOPHY",
+          quote: "The Web does not just connect machines, it connects people.",
+          author: "— Tim Berners-Lee (Creator of HTML & the World Wide Web)",
+          code: "<!-- Universal and open knowledge sharing -->\n<a href=\"https://www.w3.org\" target=\"_blank\" rel=\"noopener\">\n  Explore the Open Web\n</a>",
+          exp: "Every web page exists to deliver clear information across any device, location, or network speed."
+        },
+        {
+          cat: "semantics",
+          badge: "TAGS & SEMANTICS",
+          quote: "Semantic code is code that clearly explains itself without workarounds.",
+          author: "— HTML5 Semantics Foundation",
+          code: "<header> <!-- Primary site header -->\n  <nav> <!-- Navigation links --> </nav>\n</header>\n<main> <!-- Central page content --> </main>\n<footer> <!-- Institutional footer --> </footer>",
+          exp: "Using tags like <header>, <nav>, <main>, and <footer> boosts SEO visibility and helps assistive tech navigate with precision."
+        },
+        {
+          cat: "practices",
+          badge: "ACCESSIBILITY",
+          quote: "Accessibility is not an afterthought: it is the baseline of modern computing.",
+          author: "— W3C Web Accessibility Initiative",
+          code: "<!-- Never omit meaningful alt text on informative images -->\n<img src=\"server.jpg\" alt=\"Network server rack with configured UTP patch cables at ITC\">",
+          exp: "The 'alt' attribute describes photos for screen reader users and serves as a reliable fallback when connections lag."
+        },
+        {
+          cat: "quotes",
+          badge: "TECH QUOTES",
+          quote: "Talk is cheap. Show me the code.",
+          author: "— Linus Torvalds (Creator of Linux & Git)",
+          code: "git init\ngit add .\ngit commit -m \"feat: completed portfolio project\"\ngit push origin main",
+          exp: "In IT support and web dev, Git version control provides transparent proof of consistent hands-on technical evolution."
+        },
+        {
+          cat: "semantics",
+          badge: "FORMS",
+          quote: "Well-structured forms safeguard user input before reaching backend servers.",
+          author: "— HTML5 Form Standards",
+          code: "<form action=\"/contact\" method=\"POST\">\n  <label for=\"email\">Client Email:</label>\n  <input type=\"email\" id=\"email\" required placeholder=\"name@company.com\">\n</form>",
+          exp: "Type 'email' and 'required' offer lightweight browser-native validation without extra script overhead, working smoothly on mobile."
+        },
+        {
+          cat: "practices",
+          badge: "RESPONSIVENESS",
+          quote: "A modern website fluidly adapts to any screen, from smartphone pockets to wide screens.",
+          author: "— Responsive Web Design",
+          code: "<!-- Crucial mobile viewport tag inside <head> -->\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+          exp: "Without this tag, mobile browsers display pages shrunk as if on a desktop. With it, content fits 100% of the mobile screen width."
+        },
+        {
+          cat: "quotes",
+          badge: "ENGINEERING",
+          quote: "Simplicity is the ultimate sophistication.",
+          author: "— Leonardo da Vinci / Clean Architecture",
+          code: "/* Clean foundation: zero unnecessary bloat */\n* { box-sizing: border-box; margin: 0; padding: 0; }",
+          exp: "Minimalist, clean code loads lightning-fast, saves cellular data, and is exceptionally easy to troubleshoot."
+        },
+        {
+          cat: "practices",
+          badge: "ENCODING",
+          quote: "Data integrity always begins with the correct character set definition.",
+          author: "— IT Support & Web Standards",
+          code: "<!-- Universal encoding for accents, symbols, and emojis -->\n<meta charset=\"UTF-8\">",
+          exp: "Ensures accents, technical symbols, and international characters render flawlessly in every browser globally."
+        }
+      ]
+    };
+
+    let currentFilter = 'all';
+    let filteredList = [];
+    let currentIndex = 0;
+
+    function updateList() {
+      const fullList = data[currentLang] || data.pt;
+      if (currentFilter === 'all') {
+        filteredList = fullList;
+      } else {
+        filteredList = fullList.filter(item => item.cat === currentFilter);
+      }
+      if (currentIndex >= filteredList.length) {
+        currentIndex = 0;
+      }
+      renderCard();
+    }
+
+    function renderCard() {
+      if (!filteredList.length) return;
+      const item = filteredList[currentIndex];
+
+      if (badgeEl) badgeEl.textContent = item.badge;
+      if (counterEl) counterEl.textContent = `${currentIndex + 1} / ${filteredList.length}`;
+      if (quoteTextEl) quoteTextEl.textContent = item.quote;
+      if (authorEl) authorEl.textContent = item.author;
+      if (codeBoxEl) {
+        const codeTag = codeBoxEl.querySelector('code');
+        if (codeTag) codeTag.textContent = item.code;
+        else codeBoxEl.textContent = item.code;
+      }
+      if (expTextEl) expTextEl.textContent = item.exp;
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        if (!filteredList.length) return;
+        currentIndex = (currentIndex - 1 + filteredList.length) % filteredList.length;
+        renderCard();
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        if (!filteredList.length) return;
+        currentIndex = (currentIndex + 1) % filteredList.length;
+        renderCard();
+      });
+    }
+
+    if (shuffleBtn) {
+      shuffleBtn.addEventListener('click', () => {
+        if (filteredList.length <= 1) return;
+        let nextIdx;
+        do {
+          nextIdx = Math.floor(Math.random() * filteredList.length);
+        } while (nextIdx === currentIndex);
+        currentIndex = nextIdx;
+        renderCard();
+      });
+    }
+
+    if (copyBtn) {
+      copyBtn.addEventListener('click', () => {
+        if (!filteredList.length) return;
+        const item = filteredList[currentIndex];
+        const textToCopy = `"${item.quote}" ${item.author}\n\n${item.code}\n\n${item.exp}`;
+
+        const finishCopy = () => {
+          if (copyTextEl) copyTextEl.textContent = currentLang === 'en' ? 'Copied! ✓' : 'Copiado! ✓';
+          copyBtn.classList.add('tips-copy-btn--success');
+          setTimeout(() => {
+            if (copyTextEl) copyTextEl.textContent = (translations[currentLang] && translations[currentLang]['tips-copy']) || 'Copiar';
+            copyBtn.classList.remove('tips-copy-btn--success');
+          }, 2000);
+        };
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(textToCopy).then(finishCopy).catch(() => {});
+        } else {
+          finishCopy();
+        }
+      });
+    }
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.getAttribute('data-cat') || 'all';
+        currentIndex = 0;
+        updateList();
+      });
+    });
+
+    if (langToggle) {
+      langToggle.addEventListener('click', () => {
+        setTimeout(updateList, 60);
+      });
+    }
+
+    updateList();
+  })();
+</script>
+
+
+
+</body>
+</html>

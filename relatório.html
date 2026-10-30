@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Relatório de Construção do Portfólio Web — Leonel Rachid Francisco</title>
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 22mm 20mm 22mm 25mm;
+      @bottom-right {
+        content: counter(page);
+        font-family: Arial, sans-serif;
+        font-size: 10pt;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Calibri", "Segoe UI", Arial, sans-serif;
+      font-size: 11.5pt;
+      line-height: 1.5;
+      color: #1a1a1a;
+      background: #ffffff;
+    }
+
+    .page {
+      padding: 10px 0;
+    }
+
+    .page-break {
+      page-break-after: always;
+    }
+
+    /* ==========================================
+       CAPA OFICIAL (PADRÃO ITC - EXEMPLAR 2)
+       ========================================== */
+    .cover-page {
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+      padding: 40px 10px;
+      page-break-after: always;
+      border: 1.5px solid #2b2b2b;
+      margin: 10px;
+      box-sizing: border-box;
+    }
+
+    .cover-header {
+      margin-top: 20px;
+    }
+
+    .cover-institution-logo {
+      font-size: 26pt;
+      font-weight: 800;
+      color: #0b3c5d;
+      letter-spacing: 2px;
+      margin-bottom: 6px;
+      font-family: "Arial", sans-serif;
+    }
+
+    .cover-institution-sub {
+      font-size: 13pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #222;
+      border-bottom: 2px solid #0b3c5d;
+      padding-bottom: 8px;
+      display: inline-block;
+    }
+
+    .cover-meta {
+      margin-top: 40px;
+      font-size: 12pt;
+      line-height: 1.7;
+    }
+
+    .cover-meta strong {
+      color: #000;
+    }
+
+    .cover-title-box {
+      margin: 50px 0;
+      padding: 20px 30px;
+      border-top: 1.5px solid #333;
+      border-bottom: 1.5px solid #333;
+    }
+
+    .cover-title {
+      font-size: 16pt;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #000;
+      letter-spacing: 1px;
+      line-height: 1.35;
+    }
+
+    .cover-theme {
+      font-size: 13pt;
+      margin-top: 8px;
+      color: #333;
+      font-style: italic;
+    }
+
+    .cover-people {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 40px;
+      text-align: left;
+      font-size: 11.5pt;
+      line-height: 1.6;
+    }
+
+    .cover-people .person-col {
+      flex: 1;
+    }
+
+    .cover-people .person-col.right {
+      text-align: right;
+    }
+
+    .cover-footer {
+      margin-bottom: 20px;
+      font-size: 11pt;
+      font-weight: 600;
+      color: #333;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* ==========================================
+       TÍTULOS E ESTRUTURA
+       ========================================= */
+    h1.section-heading {
+      font-size: 15pt;
+      font-weight: bold;
+      color: #0b3c5d;
+      text-transform: uppercase;
+      border-bottom: 2px solid #0b3c5d;
+      padding-bottom: 4px;
+      margin-top: 24px;
+      margin-bottom: 14px;
+      letter-spacing: 0.5px;
+    }
+
+    h2.sub-heading {
+      font-size: 13pt;
+      font-weight: bold;
+      color: #222;
+      margin-top: 16px;
+      margin-bottom: 8px;
+      border-left: 4px solid #c9182b;
+      padding-left: 8px;
+    }
+
+    h3.sub-sub-heading {
+      font-size: 11.5pt;
+      font-weight: bold;
+      color: #333;
+      margin-top: 12px;
+      margin-bottom: 6px;
+    }
+
+    p {
+      text-align: justify;
+      margin-bottom: 10px;
+      text-indent: 1.25cm;
+    }
+
+    p.no-indent {
+      text-indent: 0;
+    }
+
+    ul, ol {
+      margin-left: 36px;
+      margin-bottom: 12px;
+    }
+
+    li {
+      margin-bottom: 4px;
+      text-align: justify;
+    }
+
+    /* ==========================================
+       ÍNDICE GERAL
+       ========================================= */
+    .toc-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+      margin-bottom: 24px;
+    }
+
+    .toc-table tr td {
+      padding: 5px 0;
+      vertical-align: bottom;
+    }
+
+    .toc-title {
+      font-size: 11pt;
+      font-weight: 500;
+    }
+
+    .toc-title strong {
+      font-weight: 700;
+    }
+
+    .toc-dots {
+      border-bottom: 1px dotted #666;
+      height: 12px;
+    }
+
+    .toc-page {
+      width: 35px;
+      text-align: right;
+      font-size: 11pt;
+      font-weight: 600;
+      padding-left: 8px;
+    }
+
+    /* ==========================================
+       BLOCOS DE CÓDIGO (INPUT - ESTILO VS CODE)
+       ========================================= */
+    .code-box {
+      background: #18181c;
+      border: 1px solid #333;
+      border-radius: 6px;
+      padding: 12px 14px;
+      margin: 10px 0 14px;
+      font-family: "Consolas", "Courier New", monospace;
+      font-size: 9.2pt;
+      color: #e0e0e0;
+      line-height: 1.45;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    .code-tag { color: #569cd6; font-weight: bold; }
+    .code-attr { color: #9cdcfe; }
+    .code-val { color: #ce9178; }
+    .code-selector { color: #d7ba7d; font-weight: bold; }
+    .code-prop { color: #9cdcfe; }
+    .code-comm { color: #6a9955; font-style: italic; }
+    .code-num { color: #b5cea8; }
+
+    /* ==========================================
+       QUADROS DE OUTPUT E DESTAQUES
+       ========================================= */
+    .output-box {
+      background: #fbfbfd;
+      border: 1.5px solid #d0d0d8;
+      border-left: 5px solid #0b3c5d;
+      border-radius: 4px;
+      padding: 12px 16px;
+      margin: 10px 0 14px;
+      font-size: 10.5pt;
+    }
+
+    .output-box-title {
+      font-weight: bold;
+      color: #0b3c5d;
+      margin-bottom: 6px;
+      font-size: 11pt;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .feature-badge {
+      display: inline-block;
+      background: #eef2ff;
+      border: 1px solid #c7d2fe;
+      color: #3730a3;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 9pt;
+      font-weight: 600;
+      margin-right: 6px;
+    }
+
+    .table-academic {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 16px;
+      font-size: 10.5pt;
+    }
+
+    .table-academic th, .table-academic td {
+      border: 1px solid #777;
+      padding: 7px 10px;
+      text-align: left;
+    }
+
+    .table-academic th {
+      background: #f0f4f8;
+      font-weight: bold;
+      color: #0b3c5d;
+    }
+
+    .note-box {
+      background: #fff8e6;
+      border: 1px solid #ffe082;
+      border-left: 5px solid #f59e0b;
+      padding: 10px 14px;
+      margin: 12px 0;
+      font-size: 10.5pt;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- =========================================================
+     CAPA OFICIAL (PADRÃO INSTITUTO DE TRANSPORTES E COMUNICAÇÕES)
+     ========================================================= -->
+<div class="cover-page">
+  <div class="cover-header">
+    <div class="cover-institution-logo">ITC</div>
+    <div class="cover-institution-sub">Instituto de Transportes e Comunicações</div>
+    <div class="cover-meta">
+      <p class="no-indent"><strong>Qualificação:</strong> Técnico de Suporte Informático — CV4 (QNQP)</p>
+      <p class="no-indent"><strong>Módulo:</strong> Construir Páginas Web Estáticas (CPWE) — UC TIC014016</p>
+    </div>
+  </div>
+
+  <div class="cover-title-box">
+    <div class="cover-title">Relatório de Construção e Desenvolvimento do Portfólio Profissional Web e Curriculum Vitae</div>
+    <div class="cover-theme">Implementação Prática com HTML5 Semântico, CSS3 Moderno (Grid &amp; Flexbox) e JavaScript</div>
+  </div>
+
+  <div class="cover-people">
+    <div class="person-col">
+      <p class="no-indent"><strong>Formando:</strong></p>
+      <p class="no-indent">Leonel Rachid Francisco</p>
+      <p class="no-indent">Turma: TSI — CV4</p>
+    </div>
+    <div class="person-col right">
+      <p class="no-indent"><strong>Formador:</strong></p>
+      <p class="no-indent">Eng. Afzal Cunhane</p>
+      <p class="no-indent">Departamento de Informática</p>
+    </div>
+  </div>
+
+  <div class="cover-footer">
+    Maputo, Outubro de 2026
+  </div>
+</div>
+
+<!-- =========================================================
+     ÍNDICE GERAL
+     ========================================================= -->
+<div class="page page-break">
+  <h1 class="section-heading">Índice Geral</h1>
+
+  <table class="toc-table">
+    <tr>
+      <td class="toc-title"><strong>1. Introdução</strong></td>
+      <td class="toc-dots"></td>
+      <td class="toc-page">1</td>
+    </tr>
+    <tr>
+      <td class="toc-title"><strong>2. Fundamentação Teórica e Conceitos Fundamentais</strong></td>
+      <td class="toc-dots"></td>
+      <td class="toc-page">2</td>
+    </tr>
+    <tr>
+      <td class="toc-title" style="padding-left: 18px;">2.1. HTML5 (HyperText Markup Language)</td>
+      <td class="toc-dots"></td>
+      <td class="toc-page">2</td>
+    </tr>
+    <tr>
+      <td class="toc-title" style="padding-left: 18px;">2.2. CSS3 (Cascading Style Sheets)</td>
+      <td class="toc-dots"></td>
+      <td class="toc-page">2</td>
+    </tr>
+    <tr>
+      <td class="toc-title" style="padding-left: 18px;">2.3. JavaScript e Dinamismo Web</td>
+      <td class="toc-dots"></td>
+      <td class="toc-page">3</td>
+    </tr>
+    <tr>
+      <td class="toc-title" style="padding-left: 18px;">2.4. Design Responsivo e Semântica Web</td>
+      <td class="toc-dots"></td>
+      <td class="toc-page">3</td>
+    </tr>
+    <tr>
+      <td class="toc-title"><strong>3. Configuração Inicial e Metadados do Projeto (Primeiro Passo)</strong></td>
+      <td class="toc-dots"></td>
+      <td class="toc-page">4</td>
+    </tr>
+    <tr>
+      <td class="toc-title"><strong>4. Desenvolvimento Prático: Seção por Seção (Input, Output e Explicação)</strong></td>
+      <td class="toc-dots"></td>
+      <td class="toc-page">5</td>
+    </tr>
+    <tr>
+      <td class="toc-title" style="padding-left: 18px;">4.1. Seção 1 – Barra de Navegação Superior (Header &amp; Nav)</td>
+      <td class="toc-dots"></td>
+      <td class="toc-page">5</td>
+    </tr>
+    <tr>
+      <td class="toc-title" style="padding-left: 18px;">4.2. Seção 2 – Coluna do Perfil Fixo / Sidebar (Estilo Dark &amp; Red)</td>
+      <td class="toc-dots"></td>
+      <td class="toc-page">7</td>
+    </tr>
+    <tr>
+      <td class="toc-title" style="padding-left: 18px;">4.3. Seção 3 – Apresentação Inicial / Hero e Efeito Typewriter</td>
+      <td class="toc-dots"></td>
+      <td class="toc-page">9</td>
+    </tr>
+    <tr>
+      <td class="toc-title" style="padding-left: 18px;">4.4. Seção 4 – Sobre Mim e Formação Académica (Tabelas e Estrutura)</td>
+      <td class="toc-dots"></td>
+      <td class="toc-page">11</td>
+    </tr>
+    <tr>
+      <td class="toc-title" style="padding-left: 18px;">4.5. Seção 5 – Competências Técnicas (Catálogo Modular de Suporte e Redes)</td>
+      <td class="toc-dots"></td>
+      <td class="toc-page">13</td>
+    </tr>
+    <tr>
+      <td class="toc-title" style="padding-left: 18px;">4.6. Seção 6 – Portfólio de Projetos Desenvolvidos</td>
+      <td class="toc-dots"></td>
+      <td class="toc-page">15</td>
+    </tr>
+    <tr>
+      <td class="toc-title" style="padding-left: 18px;">4.7. Seção 7 – Contactos e Rodapé Minimalista</td>
+      <td class="toc-dots"></td>
+      <td class="toc-page">17</td>
+    </tr>
+    <tr>
+      <td class="toc-title"><strong>5. Integração do Curriculum Vitae Original em Formato PDF</strong></td>
+      <td class="toc-dots"></td>
+      <td class="toc-page">19</td>
+    </tr>
+    <tr>
+      <td class="toc-title"><strong>6. Desafios Enfrentados e Soluções Técnicas Implementadas</strong></td>
+      <td class="toc-dots"></td>
+      <td class="toc-page">20</td>
+    </tr>
+    <tr>
+      <td class="toc-title"><strong>7. Conclusão e Autoavaliação da Aprendizagem</strong></td>
+      <td class="toc-dots"></td>
+      <td class="toc-page">21</td>
+    </tr>
+    <tr>
+      <td class="toc-title"><strong>8. Referências Bibliográficas e Webgrafia</strong></td>
+      <td class="toc-dots"></td>
+      <td class="toc-page">22</td>
+    </tr>
+  </table>
+</div>
+
+<!-- =========================================================
+     1. INTRODUÇÃO
+     ========================================================= -->
+<div class="page page-break">
+  <h1 class="section-heading">1. Introdução</h1>
+
+  <p>
+    No âmbito do módulo de <strong>Construção de Páginas Web Estáticas (CPWE)</strong>, pertencente à qualificação de <strong>Técnico de Suporte Informático — CV4</strong> ministrada no <strong>Instituto de Transportes e Comunicações (ITC)</strong>, foi proposto o desenvolvimento de um portfólio profissional pessoal integrado com o respectivo Curriculum Vitae. O projeto tem como propósito consolidar, de forma prática e aplicada, os conhecimentos adquiridos ao longo das aulas no que concerne à estruturação, estilização e dinamização de páginas web na Internet.
+  </p>
+
+  <p>
+    O presente relatório tem como objetivo descrever meticulosamente todo o processo de concepção, planejamento, implementação do código-fonte (input), análise dos resultados visuais obtidos (output) e justificações técnicas das ferramentas e linguagens adotadas. Para alcançar um padrão profissional e de alto impacto visual, optou-se pela utilização conjunta de <strong>HTML5 Semântico</strong>, <strong>CSS3 Moderno</strong> (com foco em Flexbox, CSS Grid, variáveis nativas e pseudoclasses) e elementos pontuais de <strong>JavaScript</strong> para interatividade e internacionalização de idiomas.
+  </p>
+
+  <p>
+    Visualmente, o projeto foi construído sob uma identidade estética contemporânea denominada <em>Dark &amp; Red</em> (fundo preto profundo, painéis escuros e destaques em vermelho vivo), contando com um layout dividido em duas partes fundamentais: à esquerda, uma barra lateral fixa (<em>sticky sidebar</em>) contendo a moldura com foto de perfil e ações diretas; à direita, uma área contínua de conteúdo com rolagem suave contendo as seções de Apresentação, Sobre Mim, Formação Académica, Competências Técnicas, Projetos e Canais de Contacto.
+  </p>
+
+  <p>
+    Adicionalmente, o projeto aborda a resolução de desafios práticos reais encontrados durante o ciclo de desenvolvimento, como o isolamento da sigla pessoal <strong>LRT</strong> contra traduções indesejadas de motores de busca, a implementação de transições com bordas em verde-limão ao passar o cursor (<em>hover</em>), e a geração do Curriculum Vitae em formato PDF tradicional e fidedigno ao documento original, garantindo a sua usabilidade em processos de candidatura e recrutamento profissional.
+  </p>
+</div>
+
+<!-- =========================================================
+     2. FUNDAMENTAÇÃO TEÓRICA E CONCEITOS FUNDAMENTAIS
+     ========================================================= -->
+<div class="page page-break">
+  <h1 class="section-heading">2. Fundamentação Teórica e Conceitos Fundamentais</h1>
+
+  <h2 class="sub-heading">2.1. HTML5 (HyperText Markup Language)</h2>
+  <p>
+    O <strong>HTML</strong> é a linguagem de marcação padrão utilizada mundialmente para estruturar e organizar conteúdos na World Wide Web. Em sua versão atual (HTML5), a linguagem transcende a mera exibição de texto e hiperligações, introduzindo elementos semânticos estruturados (como <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;aside&gt;</code>, <code>&lt;article&gt;</code> e <code>&lt;footer&gt;</code>).
+  </p>
+  <p>
+    A relevância da semântica no HTML reside no fornecimento de significado intrínseco aos navegadores, mecanismos de busca (SEO) e tecnologias assistivas (leitores de ecrã para utilizadores com deficiência visual). Cada elemento cumpre uma função clara na árvore de nós (DOM), separando rigorosamente o conteúdo informático da sua apresentação visual.
+  </p>
+
+  <h2 class="sub-heading">2.2. CSS3 (Cascading Style Sheets)</h2>
+  <p>
+    O <strong>CSS</strong> é a linguagem de folhas de estilo responsável pela apresentação visual, layout, cores, tipografia e adaptação gráfica dos documentos estruturados em HTML. O modelo CSS3 trouxe recursos avançados indispensáveis para o desenvolvimento web moderno:
+  </p>
+  <ul>
+    <li><strong>CSS Flexbox (Flexible Box Layout):</strong> Modelo unidimensional de organização de elementos, projetado para distribuir espaços e alinhar itens eficientemente ao longo de um eixo horizontal ou vertical.</li>
+    <li><strong>CSS Grid Layout:</strong> Modelo bidimensional que permite a criação de estruturas complexas em linhas e colunas simultâneas, fundamental para dashboards, catálogos e grelhas de projetos.</li>
+    <li><strong>Variáveis Nativas CSS (Custom Properties):</strong> Permitem declarar tokens centrais de estilo (ex.: <code>--bg</code>, <code>--primary-red</code>, <code>--lime-hover</code>), facilitando a manutenção, consistência visual e escalabilidade do código.</li>
+    <li><strong>Pseudoclasses e Transições:</strong> Recursos como <code>:hover</code> e <code>transition</code> que transformam uma página estática em uma experiência rica e fluida ao responder às ações do utilizador.</li>
+  </ul>
+
+  <h2 class="sub-heading">2.3. JavaScript e Dinamismo Web</h2>
+  <p>
+    O <strong>JavaScript</strong> é uma linguagem de programação interpretada de alto nível que adiciona dinamismo, controle do Document Object Model (DOM) e reatividade em tempo real às páginas. No presente projeto, o JavaScript foi empregue de forma seletiva e otimizada para duas finalidades centrais:
+  </p>
+  <ul>
+    <li><strong>Efeito Máquina de Escrever (Typewriter):</strong> Simulação de escrita dinâmica em tempo real no subtítulo da página inicial, alternando entre as atribuições profissionais de <em>Técnico de Suporte Informático</em>, <em>Desenvolvedor Web</em> e <em>Administrador de Redes Locais</em>.</li>
+    <li><strong>Sistema de Tradução Bilingue (PT / EN):</strong> Mecanismo em memória com persistência local via <code>localStorage</code>, permitindo alternar instantaneamente todos os rótulos do portfólio entre Português e Inglês com um único clique.</li>
+  </ul>
+
+  <h2 class="sub-heading">2.4. Design Responsivo e Semântica Web</h2>
+  <p>
+    O conceito de <strong>Design Responsivo</strong> fundamenta-se no desenvolvimento de interfaces digitais capazes de se adaptar suavemente a qualquer resolução e dispositivo (desktops de alta resolução, computadores portáteis, tablets e smartphones). Para atingir tal comportamento sem duplicar código, utilizaram-se <strong>Media Queries</strong> (<code>@media</code>), unidades flexíveis (<code>vw</code>, <code>vh</code>, <code>%</code>, <code>clamp()</code>) e a meta-tag <code>viewport</code>.
+  </p>
+</div>
+
+<!-- =========================================================
+     3. CONFIGURAÇÃO INICIAL E METADADOS DO PROJETO
+     ========================================================= -->
+<div class="page page-break">
+  <h1 class="section-heading">3. Configuração Inicial e Metadados do Projeto (Primeiro Passo)</h1>
+
+  <p>
+    Antes da construção dos elementos visíveis pelo utilizador, é imperativo estruturar os metadados e diretivas técnicas presentes no cabeçalho do documento (<code>&lt;head&gt;</code>). Esta área contém instruções críticas interpretadas pelo navegador web para correta decodificação, escala em telas móveis, importação de fontes externas e prevenção de erros de tradução automática.
+  </p>
+
+  <h2 class="sub-heading">Input (Código HTML dos Metadados)</h2>
+  <div class="code-box">
+<span class="code-comm">&lt;!-- Declaração do padrão HTML5 e configuração do cabeçalho --&gt;</span>
+&lt;!DOCTYPE html&gt;
+&lt;<span class="code-tag">html</span> <span class="code-attr">lang</span>=<span class="code-val">"pt"</span>&gt;
+&lt;<span class="code-tag">head</span>&gt;
+  &lt;<span class="code-tag">meta</span> <span class="code-attr">charset</span>=<span class="code-val">"UTF-8"</span>&gt;
+  &lt;<span class="code-tag">meta</span> <span class="code-attr">name</span>=<span class="code-val">"viewport"</span> <span class="code-attr">content</span>=<span class="code-val">"width=device-width, initial-scale=1"</span>&gt;
+  <span class="code-comm">&lt;!-- Prevenção de tradução automática que corrompia a sigla LRT para VLT --&gt;</span>
+  &lt;<span class="code-tag">meta</span> <span class="code-attr">name</span>=<span class="code-val">"google"</span> <span class="code-attr">content</span>=<span class="code-val">"notranslate"</span>&gt;
+  &lt;<span class="code-tag">title</span>&gt;Leonel Francisco (LRT) — Portfólio&lt;/<span class="code-tag">title</span>&gt;
+  
+  <span class="code-comm">&lt;!-- Importação de Fontes Oficiais: Space Grotesk, Inter e JetBrains Mono --&gt;</span>
+  &lt;<span class="code-tag">link</span> <span class="code-attr">rel</span>=<span class="code-val">"preconnect"</span> <span class="code-attr">href</span>=<span class="code-val">"https://fonts.googleapis.com"</span>&gt;
+  &lt;<span class="code-tag">link</span> <span class="code-attr">href</span>=<span class="code-val">"https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"</span> <span class="code-attr">rel</span>=<span class="code-val">"stylesheet"</span>&gt;
+  &lt;<span class="code-tag">link</span> <span class="code-attr">rel</span>=<span class="code-val">"stylesheet"</span> <span class="code-attr">href</span>=<span class="code-val">"style.css"</span>&gt;
+&lt;/<span class="code-tag">head</span>&gt;
+  </div>
+
+  <h2 class="sub-heading">Explicação Técnica Detalhada</h2>
+  <ul>
+    <li><strong>&lt;!DOCTYPE html&gt;:</strong> Instrução que declara ao navegador a conformidade com a especificação moderna do HTML5, ativando o modo de renderização padrão (<em>no-quirks mode</em>).</li>
+    <li><strong>&lt;meta charset="UTF-8"&gt;:</strong> Define o conjunto de caracteres universal Unicode (UTF-8), assegurando a exibição fidedigna de caracteres especiais da língua portuguesa, tais como acentos circunflexos, agudos e cedilhas.</li>
+    <li><strong>&lt;meta name="viewport" content="..."&gt;:</strong> Instrução indispensável para o design responsivo, forçando o navegador a igualar a largura da página à largura real do ecrã do dispositivo (<em>device-width</em>) com escala inicial 1.0.</li>
+    <li><strong>&lt;meta name="google" content="notranslate"&gt;:</strong> Diretiva essencial que soluciona de forma definitiva o problema de auto-tradução no Google Chrome, que equivocadamente traduzia a sigla pessoal <strong>LRT</strong> (<em>Leonel Rachid Tamo</em>) para o acrônimo ferroviário <strong>VLT</strong> (<em>Veículo Leve sobre Trilhos</em>).</li>
+    <li><strong>Importação de Fontes Web:</strong> Conexão à biblioteca Google Fonts trazendo a família <em>Space Grotesk</em> para títulos e marcas de alto impacto visual, <em>Inter</em> para textos corridos de excelente legibilidade e <em>JetBrains Mono</em> para badges e etiquetas técnicas.</li>
+  </ul>
+</div>
+
+<!-- =========================================================
+     4. DESENVOLVIMENTO: SEÇÃO POR SEÇÃO
+     ========================================================= -->
+<div class="page page-break">
+  <h1 class="section-heading">4. Desenvolvimento Prático: Seção por Seção</h1>
+
+  <h2 class="sub-heading">4.1. Seção 1 – Barra de Navegação Superior (Header &amp; Nav)</h2>
+  <p>
+    A barra de navegação superior foi projetada para permanecer fixa no topo durante toda a navegação (<em>sticky header</em>). Ela cumpre três funções centrais: identificar a marca pessoal (<strong>LRT.</strong>), possibilitar a alteração imediata de idioma (PT / EN) e oferecer links âncora com rolagem suave para cada parte do site.
+  </p>
+
+  <h3 class="sub-sub-heading">Input (Código HTML da Navegação)</h3>
+  <div class="code-box">
+&lt;<span class="code-tag">header</span> <span class="code-attr">class</span>=<span class="code-val">"nav"</span>&gt;
+  &lt;<span class="code-tag">a</span> <span class="code-attr">href</span>=<span class="code-val">"#inicio"</span> <span class="code-attr">class</span>=<span class="code-val">"nav__logo notranslate"</span> <span class="code-attr">translate</span>=<span class="code-val">"no"</span>&gt;
+    &lt;<span class="code-tag">span</span> <span class="code-attr">class</span>=<span class="code-val">"logo-text"</span>&gt;LRT&lt;/<span class="code-tag">span</span>&gt;&lt;<span class="code-tag">span</span> <span class="code-attr">class</span>=<span class="code-val">"dot"</span>&gt;.&lt;/<span class="code-tag">span</span>&gt;
+  &lt;/<span class="code-tag">a</span>&gt;
+
+  &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-val">"nav__controls"</span>&gt;
+    &lt;<span class="code-tag">button</span> <span class="code-attr">class</span>=<span class="code-val">"lang-toggle"</span> <span class="code-attr">id</span>=<span class="code-val">"langToggle"</span>&gt;
+      &lt;<span class="code-tag">span</span> <span class="code-attr">class</span>=<span class="code-val">"lang-badge"</span> <span class="code-attr">id</span>=<span class="code-val">"langBadge"</span>&gt;EN&lt;/<span class="code-tag">span</span>&gt;
+    &lt;/<span class="code-tag">button</span>&gt;
+  &lt;/<span class="code-tag">div</span>&gt;
+
+  &lt;<span class="code-tag">nav</span> <span class="code-attr">class</span>=<span class="code-val">"nav__links"</span> <span class="code-attr">id</span>=<span class="code-val">"navLinks"</span>&gt;
+    &lt;<span class="code-tag">a</span> <span class="code-attr">href</span>=<span class="code-val">"#inicio"</span> <span class="code-attr">data-i18n</span>=<span class="code-val">"nav-home"</span>&gt;Início&lt;/<span class="code-tag">a</span>&gt;
+    &lt;<span class="code-tag">a</span> <span class="code-attr">href</span>=<span class="code-val">"#sobre"</span> <span class="code-attr">data-i18n</span>=<span class="code-val">"nav-about"</span>&gt;Sobre Mim&lt;/<span class="code-tag">a</span>&gt;
+    &lt;<span class="code-tag">a</span> <span class="code-attr">href</span>=<span class="code-val">"#habilidades"</span> <span class="code-attr">data-i18n</span>=<span class="code-val">"nav-skills"</span>&gt;Habilidades&lt;/<span class="code-tag">a</span>&gt;
+    &lt;<span class="code-tag">a</span> <span class="code-attr">href</span>=<span class="code-val">"#projectos"</span> <span class="code-attr">data-i18n</span>=<span class="code-val">"nav-projects"</span>&gt;Projectos&lt;/<span class="code-tag">a</span>&gt;
+    &lt;<span class="code-tag">a</span> <span class="code-attr">href</span>=<span class="code-val">"#contacto"</span> <span class="code-attr">data-i18n</span>=<span class="code-val">"nav-contact"</span>&gt;Contactos&lt;/<span class="code-tag">a</span>&gt;
+  &lt;/<span class="code-tag">nav</span>&gt;
+&lt;/<span class="code-tag">header</span>&gt;
+  </div>
+
+  <h3 class="sub-sub-heading">Input (Código CSS da Barra de Navegação)</h3>
+  <div class="code-box">
+<span class="code-selector">.nav</span> {
+  <span class="code-prop">position</span>: sticky;
+  <span class="code-prop">top</span>: 0;
+  <span class="code-prop">z-index</span>: 1000;
+  <span class="code-prop">display</span>: flex;
+  <span class="code-prop">align-items</span>: center;
+  <span class="code-prop">justify-content</span>: space-between;
+  <span class="code-prop">padding</span>: 16px 5vw;
+  <span class="code-prop">background</span>: rgba(7, 7, 9, 0.94);
+  <span class="code-prop">backdrop-filter</span>: blur(14px);
+  <span class="code-prop">border-bottom</span>: 1px solid var(--border);
+}
+
+<span class="code-selector">.nav__logo</span> {
+  <span class="code-prop">font-family</span>: var(--font-display);
+  <span class="code-prop">font-size</span>: 1.5rem;
+  <span class="code-prop">font-weight</span>: 800;
+  <span class="code-prop">letter-spacing</span>: 2px;
+  <span class="code-prop">color</span>: var(--primary-red);
+}
+
+<span class="code-selector">.nav__links a:hover, .nav__links a.active</span> {
+  <span class="code-prop">color</span>: #ffffff;
+}
+
+<span class="code-selector">.nav__links a::after</span> {
+  <span class="code-prop">content</span>: '';
+  <span class="code-prop">position</span>: absolute;
+  <span class="code-prop">bottom</span>: -2px;
+  <span class="code-prop">left</span>: 0;
+  <span class="code-prop">width</span>: 0;
+  <span class="code-prop">height</span>: 2px;
+  <span class="code-prop">background</span>: var(--primary-red);
+  <span class="code-prop">transition</span>: width 0.25s ease;
+}
+<span class="code-selector">.nav__links a:hover::after</span> { <span class="code-prop">width</span>: 100%; }
+  </div>
+
+  <div class="output-box">
+    <div class="output-box-title">Resultado Visual (Output da Seção 1)</div>
+    A barra posiciona-se de forma elegante no topo com acabamento em vidro fosco (<em>backdrop-filter</em>). O logotipo exibe <strong>LRT.</strong> com tom vermelho marcante. Os links apresentam sublinhado dinâmico animado e o botão do alternador de idiomas ganha uma borda verde-limão reluzente ao ser apontado pelo cursor.
+  </div>
+</div>
+
+<!-- =========================================================
+     4.2. COLUNA DO PERFIL FIXO (SIDEBAR DARK & RED)
+     ========================================================= -->
+<div class="page page-break">
+  <h2 class="sub-heading">4.2. Seção 2 – Coluna do Perfil Fixo / Sidebar (Estilo Dark &amp; Red)</h2>
+  <p>
+    Em concordância com os requisitos e a imagem de referência fornecida, a foto de perfil foi desacoplada do fluxo comum e instalada em uma coluna lateral fixa à esquerda em computadores de secretária (desktop). Esta estrutura apresenta um elemento central marcante: uma moldura oval com gradiente lunar vermelho profundo, onde a fotografia pessoal foi integrada com precisão cirúrgica.
+  </p>
+
+  <h3 class="sub-sub-heading">Input (Código HTML do Perfil Fixo)</h3>
+  <div class="code-box">
+&lt;<span class="code-tag">aside</span> <span class="code-attr">class</span>=<span class="code-val">"profile-sidebar"</span>&gt;
+  <span class="code-comm">&lt;!-- Moldura Oval Dark & Red idêntica ao design de referência --&gt;</span>
+  &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-val">"profile-frame"</span>&gt;
+    &lt;<span class="code-tag">img</span> <span class="code-attr">class</span>=<span class="code-val">"profile-frame__img"</span> <span class="code-attr">src</span>=<span class="code-val">"fotoperfil.jpeg"</span> <span class="code-attr">alt</span>=<span class="code-val">"Foto de perfil de Leonel Francisco"</span>&gt;
+  &lt;/<span class="code-tag">div</span>&gt;
+
+  &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-val">"profile-info"</span>&gt;
+    &lt;<span class="code-tag">h2</span> <span class="code-attr">class</span>=<span class="code-val">"profile-name notranslate"</span> <span class="code-attr">translate</span>=<span class="code-val">"no"</span>&gt;Leonel Francisco&lt;/<span class="code-tag">h2</span>&gt;
+    &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-val">"profile-tag"</span>&gt;
+      &lt;<span class="code-tag">span</span> <span class="code-attr">class</span>=<span class="code-val">"dot-online"</span>&gt;&lt;/<span class="code-tag">span</span>&gt;
+      &lt;<span class="code-tag">span</span> <span class="code-attr">class</span>=<span class="code-val">"notranslate"</span> <span class="code-attr">translate</span>=<span class="code-val">"no"</span>&gt;LRT&lt;/<span class="code-tag">span</span>&gt; • &lt;<span class="code-tag">span</span> <span class="code-attr">data-i18n</span>=<span class="code-val">"profile-tag-sub"</span>&gt;Suporte &amp; Web&lt;/<span class="code-tag">span</span>&gt;
+    &lt;/<span class="code-tag">div</span>&gt;
+
+    <span class="code-comm">&lt;!-- Ícones Circulares com borda e hover verde-limão --&gt;</span>
+    &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-val">"profile-socials"</span>&gt;
+      &lt;<span class="code-tag">a</span> <span class="code-attr">href</span>=<span class="code-val">"mailto:leoneltamo598@gmail.com"</span> <span class="code-attr">class</span>=<span class="code-val">"social-icon"</span>&gt;&lt;<span class="code-tag">svg</span>&gt;...&lt;/<span class="code-tag">svg</span>&gt;&lt;/<span class="code-tag">a</span>&gt;
+      &lt;<span class="code-tag">a</span> <span class="code-attr">href</span>=<span class="code-val">"tel:+258847237400"</span> <span class="code-attr">class</span>=<span class="code-val">"social-icon"</span>&gt;&lt;<span class="code-tag">svg</span>&gt;...&lt;/<span class="code-tag">svg</span>&gt;&lt;/<span class="code-tag">a</span>&gt;
+      &lt;<span class="code-tag">a</span> <span class="code-attr">href</span>=<span class="code-val">"https://linkedin.com/in/leonel-tamo-1074b0443/"</span> <span class="code-attr">class</span>=<span class="code-val">"social-icon"</span>&gt;&lt;<span class="code-tag">svg</span>&gt;...&lt;/<span class="code-tag">svg</span>&gt;&lt;/<span class="code-tag">a</span>&gt;
+      &lt;<span class="code-tag">a</span> <span class="code-attr">href</span>=<span class="code-val">"https://github.com/leoneltamo598-bit"</span> <span class="code-attr">class</span>=<span class="code-val">"social-icon"</span>&gt;&lt;<span class="code-tag">svg</span>&gt;...&lt;/<span class="code-tag">svg</span>&gt;&lt;/<span class="code-tag">a</span>&gt;
+    &lt;/<span class="code-tag">div</span>&gt;
+
+    <span class="code-comm">&lt;!-- Botão Principal de Download do CV Original em PDF --&gt;</span>
+    &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-val">"profile-actions"</span>&gt;
+      &lt;<span class="code-tag">a</span> <span class="code-attr">href</span>=<span class="code-val">"Curriculum_Vitae_Leonel_Francisco.pdf"</span> <span class="code-attr">download</span> <span class="code-attr">class</span>=<span class="code-val">"btn btn--primary"</span>&gt;Baixar CV&lt;/<span class="code-tag">a</span>&gt;
+      &lt;<span class="code-tag">a</span> <span class="code-attr">href</span>=<span class="code-val">"#contacto"</span> <span class="code-attr">class</span>=<span class="code-val">"btn btn--outline"</span>&gt;Contactar&lt;/<span class="code-tag">a</span>&gt;
+    &lt;/<span class="code-tag">div</span>&gt;
+  &lt;/<span class="code-tag">div</span>&gt;
+&lt;/<span class="code-tag">aside</span>&gt;
+  </div>
+
+  <h3 class="sub-sub-heading">Input (Código CSS da Moldura Oval e Efeito Hover Verde-Limão)</h3>
+  <div class="code-box">
+<span class="code-selector">.profile-sidebar</span> {
+  <span class="code-prop">position</span>: sticky;
+  <span class="code-prop">top</span>: 98px;
+  <span class="code-prop">height</span>: calc(100vh - 120px);
+  <span class="code-prop">display</span>: flex;
+  <span class="code-prop">flex-direction</span>: column;
+  <span class="code-prop">align-items</span>: center;
+  <span class="code-prop">justify-content</span>: space-between;
+  <span class="code-prop">background</span>: var(--bg-panel);
+  <span class="code-prop">border</span>: 1px solid var(--border);
+  <span class="code-prop">border-radius</span>: var(--radius-lg);
+  <span class="code-prop">padding</span>: 32px 24px;
+}
+
+<span class="code-selector">.profile-frame</span> {
+  <span class="code-prop">width</span>: min(290px, 85%);
+  <span class="code-prop">aspect-ratio</span>: 1 / 1.25;
+  <span class="code-prop">border-radius</span>: 50% 50% 48% 48% / 58% 58% 42% 42%;
+  <span class="code-prop">background</span>: radial-gradient(circle at 50% 36%, #ff2b34 0%, #b80010 52%, #380006 82%, #070709 100%);
+  <span class="code-prop">border</span>: 2.5px solid var(--border-red);
+  <span class="code-prop">box-shadow</span>: 0 0 45px var(--primary-red-glow), inset 0 0 30px rgba(0, 0, 0, 0.9);
+  <span class="code-prop">overflow</span>: hidden;
+  <span class="code-prop">transition</span>: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+<span class="code-selector">.profile-frame:hover, .profile-sidebar:hover</span> {
+  <span class="code-prop">border-color</span>: #00ff66 !important;
+  <span class="code-prop">box-shadow</span>: 0 0 30px rgba(0, 255, 102, 0.45) !important;
+}
+  </div>
+
+  <div class="output-box">
+    <div class="output-box-title">Resultado Visual (Output da Seção 2)</div>
+    A barra lateral posiciona-se firmemente à esquerda, mantendo-se visível enquanto o visitante desce pelo conteúdo. A moldura ovalada vermelha gera um contraste de alto padrão estético com a foto do formando. Ao passar o cursor por qualquer área ou botão da barra, a borda acende-se em verde-limão vibrante.
+  </div>
+</div>
+
+<!-- =========================================================
+     4.3. APRESENTAÇÃO E HERO COM EFEITO TYPEWRITER
+     ========================================================= -->
+<div class="page page-break">
+  <h2 class="sub-heading">4.3. Seção 3 – Apresentação Inicial / Hero e Efeito Typewriter</h2>
+  <p>
+    A seção de apresentação inicia o conteúdo com rolagem da coluna da direita. O design foi construído com hierarquia rigorosa, destacando o primeiro nome com a cor vermelha luminescente e apresentando um efeito de máquina de escrever (<em>typewriter effect</em>) no subtítulo profissional, exatamente como no modelo de inspiração visual.
+  </p>
+
+  <h3 class="sub-sub-heading">Input (Código HTML e JavaScript do Typewriter)</h3>
+  <div class="code-box">
+&lt;<span class="code-tag">section</span> <span class="code-attr">id</span>=<span class="code-val">"inicio"</span> <span class="code-attr">class</span>=<span class="code-val">"section-block hero-block"</span>&gt;
+  &lt;<span class="code-tag">p</span> <span class="code-attr">class</span>=<span class="code-val">"hero-eyebrow"</span>&gt;&gt;_ &lt;<span class="code-tag">span</span> <span class="code-attr">data-i18n</span>=<span class="code-val">"hero-eyebrow"</span>&gt;Técnico de Suporte Informático&lt;/<span class="code-tag">span</span>&gt;&lt;/<span class="code-tag">p</span>&gt;
+  &lt;<span class="code-tag">h1</span> <span class="code-attr">class</span>=<span class="code-val">"hero-title"</span>&gt;
+    &lt;<span class="code-tag">span</span> <span class="code-attr">data-i18n</span>=<span class="code-val">"hero-greeting"</span>&gt;Olá, sou o&lt;/<span class="code-tag">span</span>&gt; &lt;<span class="code-tag">span</span> <span class="code-attr">class</span>=<span class="code-val">"text-red notranslate"</span> <span class="code-attr">translate</span>=<span class="code-val">"no"</span>&gt;Leonel&lt;/<span class="code-tag">span</span>&gt;
+  &lt;/<span class="code-tag">h1</span>&gt;
+
+  &lt;<span class="code-tag">p</span> <span class="code-attr">class</span>=<span class="code-val">"hero-subtitle"</span>&gt;
+    &lt;<span class="code-tag">span</span> <span class="code-attr">data-i18n</span>=<span class="code-val">"hero-iam"</span>&gt;Sou&lt;/<span class="code-tag">span</span>&gt; &lt;<span class="code-tag">span</span> <span class="code-attr">class</span>=<span class="code-val">"typewriter-text"</span> <span class="code-attr">id</span>=<span class="code-val">"roleTypewriter"</span>&gt;&lt;/<span class="code-tag">span</span>&gt;&lt;<span class="code-tag">span</span> <span class="code-attr">class</span>=<span class="code-val">"cursor"</span>&gt;|&lt;/<span class="code-tag">span</span>&gt;
+  &lt;/<span class="code-tag">p</span>&gt;
+
+  &lt;<span class="code-tag">p</span> <span class="code-attr">class</span>=<span class="code-val">"hero-pitch"</span> <span class="code-attr">data-i18n</span>=<span class="code-val">"hero-pitch"</span>&gt;
+    Estudante de CV4 em Técnico de Suporte Informático no ITC, focado em montagem, manutenção, redes de computadores e desenvolvimento de páginas web.
+  &lt;/<span class="code-tag">p</span>&gt;
+
+  &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-val">"hero-cta"</span>&gt;
+    &lt;<span class="code-tag">a</span> <span class="code-attr">href</span>=<span class="code-val">"#projectos"</span> <span class="code-attr">class</span>=<span class="code-val">"btn btn--primary"</span>&gt;Ver projectos&lt;/<span class="code-tag">a</span>&gt;
+    &lt;<span class="code-tag">a</span> <span class="code-attr">href</span>=<span class="code-val">"#contacto"</span> <span class="code-attr">class</span>=<span class="code-val">"btn btn--outline"</span>&gt;Contactar&lt;/<span class="code-tag">a</span>&gt;
+  &lt;/<span class="code-tag">div</span>&gt;
+&lt;/<span class="code-tag">section</span>&gt;
+
+<span class="code-comm">// Script JS que implementa o ciclo do Typewriter</span>
+<span class="code-selector">function</span> <span class="code-prop">typeEffect</span>() {
+  <span class="code-selector">const</span> roles = [<span class="code-val">"Técnico de Suporte Informático"</span>, <span class="code-val">"Desenvolvedor Web"</span>, <span class="code-val">"Administrador de Redes Locais"</span>];
+  <span class="code-selector">const</span> currentText = roles[currentRoleIdx % roles.length];
+  roleEl.textContent = isDeleting ? currentText.substring(0, charIdx--) : currentText.substring(0, charIdx++);
+  <span class="code-selector">let</span> speed = isDeleting ? 45 : 90;
+  <span class="code-selector">if</span> (!isDeleting &amp;&amp; charIdx === currentText.length) { speed = 1800; isDeleting = true; }
+  <span class="code-selector">else if</span> (isDeleting &amp;&amp; charIdx === 0) { isDeleting = false; currentRoleIdx++; speed = 350; }
+  setTimeout(typeEffect, speed);
+}
+  </div>
+
+  <div class="output-box">
+    <div class="output-box-title">Resultado Visual (Output da Seção 3)</div>
+    Apresenta-se uma tipografia encorpada e limpa. O nome <strong>Leonel</strong> surge com destaque em vermelho vivo, seguido pelo subtítulo dinâmico que digita e apaga automaticamente as três especializações com um cursor vertical pulsante (<span style="color:#ff2b34; font-weight:bold;">|</span>), transmitindo dinamismo e profissionalismo técnico.
+  </div>
+</div>
+
+<!-- =========================================================
+     4.4. SOBRE MIM E FORMAÇÃO ACADÉMICA
+     ========================================================= -->
+<div class="page page-break">
+  <h2 class="sub-heading">4.4. Seção 4 – Sobre Mim e Formação Académica (Tabelas e Estrutura)</h2>
+  <p>
+    A seção <strong>Sobre Mim</strong> descreve o perfil do formando e sintetiza a trajetória acadêmica e profissional. Para assegurar total rigor técnico, as qualificações foram organizadas por meio de uma tabela HTML semanticamente correta (<code>&lt;table&gt;</code>, <code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code>, <code>&lt;th&gt;</code> e <code>&lt;td&gt;</code>) estilizada em tons escuros e com crachás (<em>badges</em>) de status.
+  </p>
+
+  <h3 class="sub-sub-heading">Input (Código HTML da Tabela de Formação)</h3>
+  <div class="code-box">
+&lt;<span class="code-tag">section</span> <span class="code-attr">id</span>=<span class="code-val">"sobre"</span> <span class="code-attr">class</span>=<span class="code-val">"section-block"</span>&gt;
+  &lt;<span class="code-tag">h2</span> <span class="code-attr">class</span>=<span class="code-val">"section-title"</span>&gt;Sobre Mim&lt;/<span class="code-tag">h2</span>&gt;
+  &lt;<span class="code-tag">p</span> <span class="code-attr">class</span>=<span class="code-val">"sobre-bio"</span>&gt;
+    Formando do curso de Técnico de Suporte Informático no Instituto de Transportes e Comunicações (ITC). Tenho foco prático em montagem e manutenção de computadores, suporte ao utilizador, diagnóstico de avarias, redes de computadores e criação de páginas web estáticas com HTML e CSS.
+  &lt;/<span class="code-tag">p</span>&gt;
+
+  &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-val">"table-container"</span>&gt;
+    &lt;<span class="code-tag">h3</span> <span class="code-attr">class</span>=<span class="code-val">"table-title"</span>&gt;Formação Académica &amp; Técnica&lt;/<span class="code-tag">h3</span>&gt;
+    &lt;<span class="code-tag">table</span> <span class="code-attr">class</span>=<span class="code-val">"custom-table"</span>&gt;
+      &lt;<span class="code-tag">thead</span>&gt;
+        &lt;<span class="code-tag">tr</span>&gt;
+          &lt;<span class="code-tag">th</span>&gt;Qualificação / Nível&lt;/<span class="code-tag">th</span>&gt;
+          &lt;<span class="code-tag">th</span>&gt;Nível / Código&lt;/<span class="code-tag">th</span>&gt;
+          &lt;<span class="code-tag">th</span>&gt;Instituição&lt;/<span class="code-tag">th</span>&gt;
+          &lt;<span class="code-tag">th</span>&gt;Situação&lt;/<span class="code-tag">th</span>&gt;
+        &lt;/<span class="code-tag">tr</span>&gt;
+      &lt;/<span class="code-tag">thead</span>&gt;
+      &lt;<span class="code-tag">tbody</span>&gt;
+        &lt;<span class="code-tag">tr</span>&gt;
+          &lt;<span class="code-tag">td</span>&gt;&lt;<span class="code-tag">strong</span>&gt;Técnico de Suporte Informático&lt;/<span class="code-tag">strong</span>&gt;&lt;/<span class="code-tag">td</span>&gt;
+          &lt;<span class="code-tag">td</span>&gt;CV4 — QNQP&lt;/<span class="code-tag">td</span>&gt;
+          &lt;<span class="code-tag">td</span>&gt;ITC — Maputo&lt;/<span class="code-tag">td</span>&gt;
+          &lt;<span class="code-tag">td</span>&gt;&lt;<span class="code-tag">span</span> <span class="code-attr">class</span>=<span class="code-val">"status-badge"</span>&gt;Em Curso (2026)&lt;/<span class="code-tag">span</span>&gt;&lt;/<span class="code-tag">td</span>&gt;
+        &lt;/<span class="code-tag">tr</span>&gt;
+        &lt;<span class="code-tag">tr</span>&gt;
+          &lt;<span class="code-tag">td</span>&gt;&lt;<span class="code-tag">strong</span>&gt;Eletricidade Industrial&lt;/<span class="code-tag">strong</span>&gt;&lt;/<span class="code-tag">td</span>&gt;
+          &lt;<span class="code-tag">td</span>&gt;CV3 — QNQP&lt;/<span class="code-tag">td</span>&gt;
+          &lt;<span class="code-tag">td</span>&gt;ITC — Maputo&lt;/<span class="code-tag">td</span>&gt;
+          &lt;<span class="code-tag">td</span>&gt;&lt;<span class="code-tag">span</span> <span class="code-attr">class</span>=<span class="code-val">"status-badge status-badge--done"</span>&gt;Concluído (2025)&lt;/<span class="code-tag">span</span>&gt;&lt;/<span class="code-tag">td</span>&gt;
+        &lt;/<span class="code-tag">tr</span>&gt;
+        &lt;<span class="code-tag">tr</span>&gt;
+          &lt;<span class="code-tag">td</span>&gt;&lt;<span class="code-tag">strong</span>&gt;Ensino Secundário Geral&lt;/<span class="code-tag">strong</span>&gt;&lt;/<span class="code-tag">td</span>&gt;
+          &lt;<span class="code-tag">td</span>&gt;10.ª Classe&lt;/<span class="code-tag">td</span>&gt;
+          &lt;<span class="code-tag">td</span>&gt;Escola Secundária ADPP&lt;/<span class="code-tag">td</span>&gt;
+          &lt;<span class="code-tag">td</span>&gt;&lt;<span class="code-tag">span</span> <span class="code-attr">class</span>=<span class="code-val">"status-badge status-badge--done"</span>&gt;Concluído (2024)&lt;/<span class="code-tag">span</span>&gt;&lt;/<span class="code-tag">td</span>&gt;
+        &lt;/<span class="code-tag">tr</span>&gt;
+      &lt;/<span class="code-tag">tbody</span>&gt;
+    &lt;/<span class="code-tag">table</span>&gt;
+  &lt;/<span class="code-tag">div</span>&gt;
+&lt;/<span class="code-tag">section</span>&gt;
+  </div>
+
+  <div class="output-box">
+    <div class="output-box-title">Resultado Visual (Output da Seção 4)</div>
+    A tabela apresenta uma organização nítida, com cabeçalhos com linha inferior vermelha e linhas alternadas com iluminação discreta. Os crachás distinguem o curso atual no ITC (borda vermelha) dos cursos concluídos (borda verde-limão), facilitando a leitura imediata pelo examinador ou recrutador.
+  </div>
+</div>
+
+<!-- =========================================================
+     4.5. SEÇÃO DE COMPETÊNCIAS TÉCNICAS
+     ========================================================= -->
+<div class="page page-break">
+  <h2 class="sub-heading">4.5. Seção 5 – Competências Técnicas (Catálogo Modular de Suporte e Redes)</h2>
+  <p>
+    As competências técnicas foram estruturadas em quatro áreas vitais da formação de Técnico de Suporte Informático: <em>Hardware e Manutenção</em>, <em>Redes e Conectividade</em>, <em>Sistemas Operativos e Segurança</em>, e <em>Desenvolvimento Web</em>. Cada área é representada por um cartão individual estilizado em CSS Grid.
+  </p>
+
+  <h3 class="sub-sub-heading">Input (Código CSS do Grid e Cards com Efeito Hover)</h3>
+  <div class="code-box">
+<span class="code-selector">.skills-catalog</span> {
+  <span class="code-prop">display</span>: grid;
+  <span class="code-prop">grid-template-columns</span>: repeat(auto-fit, minmax(260px, 1fr));
+  <span class="code-prop">gap</span>: 22px;
+}
+
+<span class="code-selector">.skill-card</span> {
+  <span class="code-prop">background</span>: var(--bg-panel);
+  <span class="code-prop">border</span>: 1px solid var(--border);
+  <span class="code-prop">border-radius</span>: var(--radius-md);
+  <span class="code-prop">padding</span>: 24px;
+  <span class="code-prop">display</span>: flex;
+  <span class="code-prop">flex-direction</span>: column;
+  <span class="code-prop">transition</span>: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+<span class="code-selector">.skill-card:hover</span> {
+  <span class="code-prop">border-color</span>: #00ff66 !important;
+  <span class="code-prop">box-shadow</span>: 0 0 16px rgba(0, 255, 102, 0.4) !important;
+  <span class="code-prop">transform</span>: translateY(-4px);
+}
+  </div>
+
+  <div class="output-box">
+    <div class="output-box-title">Resultado Visual (Output da Seção 5)</div>
+    Os cartões alinham-se automaticamente em duas colunas em telas médias e ajustam-se para uma coluna em dispositivos compactos. Cada cartão exibe um ícone vetorial SVG estilizado, descrição concisa e etiquetas monocromáticas em fonte JetBrains Mono, com animação de elevação e contorno verde-limão ao passar o cursor.
+  </div>
+</div>
+
+<!-- =========================================================
+     4.6. SEÇÃO DE PROJETOS E CONTACTOS
+     ========================================================= -->
+<div class="page page-break">
+  <h2 class="sub-heading">4.6. Seção 6 – Portfólio de Projetos Desenvolvidos</h2>
+  <p>
+    A seção de projetos apresenta trabalhos práticos elaborados no âmbito da disciplina, demonstrando o domínio de formulários com validação, exercícios de consolidação de marcação e o próprio portfólio web. Cada cartão integra uma miniatura do projeto e uma camada de sobreposição escura (<em>overlay</em>) com link direto para consulta de código.
+  </p>
+
+  <h2 class="sub-heading">4.7. Seção 7 – Contactos e Rodapé Minimalista</h2>
+  <p>
+    Para estabelecer contato direto com recrutadores e clientes, desenvolveu-se uma grelha de comunicação rápida contendo e-mail profissional, número de telefone com protocolo <code>tel:</code>, perfil do LinkedIn e repositório do GitHub.
+  </p>
+
+  <h3 class="sub-sub-heading">Input (Código HTML dos Canais de Contacto e Rodapé)</h3>
+  <div class="code-box">
+&lt;<span class="code-tag">section</span> <span class="code-attr">id</span>=<span class="code-val">"contacto"</span> <span class="code-attr">class</span>=<span class="code-val">"section-block"</span>&gt;
+  &lt;<span class="code-tag">h2</span> <span class="code-attr">class</span>=<span class="code-val">"section-title"</span>&gt;Contactos&lt;/<span class="code-tag">h2</span>&gt;
+  &lt;<span class="code-tag">p</span> <span class="code-attr">class</span>=<span class="code-val">"contacto__lead"</span>&gt;Canais directos para comunicação, parcerias ou propostas de trabalho:&lt;/<span class="code-tag">p</span>&gt;
+
+  &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-val">"contacto__grid"</span>&gt;
+    &lt;<span class="code-tag">a</span> <span class="code-attr">href</span>=<span class="code-val">"mailto:leoneltamo598@gmail.com"</span> <span class="code-attr">class</span>=<span class="code-val">"contacto__item"</span>&gt;
+      &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-val">"contacto__item-info"</span>&gt;
+        &lt;<span class="code-tag">span</span> <span class="code-attr">class</span>=<span class="code-val">"contacto__item-label"</span>&gt;E-mail&lt;/<span class="code-tag">span</span>&gt;
+        &lt;<span class="code-tag">span</span> <span class="code-attr">class</span>=<span class="code-val">"contacto__item-val"</span>&gt;leoneltamo598@gmail.com&lt;/<span class="code-tag">span</span>&gt;
+      &lt;/<span class="code-tag">div</span>&gt;
+    &lt;/<span class="code-tag">a</span>&gt;
+    &lt;<span class="code-tag">a</span> <span class="code-attr">href</span>=<span class="code-val">"tel:+258847237400"</span> <span class="code-attr">class</span>=<span class="code-val">"contacto__item"</span>&gt;
+      &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-val">"contacto__item-info"</span>&gt;
+        &lt;<span class="code-tag">span</span> <span class="code-attr">class</span>=<span class="code-val">"contacto__item-label"</span>&gt;Telefone&lt;/<span class="code-tag">span</span>&gt;
+        &lt;<span class="code-tag">span</span> <span class="code-attr">class</span>=<span class="code-val">"contacto__item-val"</span>&gt;+258 84 723 7400&lt;/<span class="code-tag">span</span>&gt;
+      &lt;/<span class="code-tag">div</span>&gt;
+    &lt;/<span class="code-tag">a</span>&gt;
+  &lt;/<span class="code-tag">div</span>&gt;
+&lt;/<span class="code-tag">section</span>&gt;
+
+<span class="code-comm">&lt;!-- Rodapé Limpo (sem repetições redundantes de CPWE) --&gt;</span>
+&lt;<span class="code-tag">footer</span> <span class="code-attr">class</span>=<span class="code-val">"footer"</span>&gt;
+  &lt;<span class="code-tag">p</span>&gt;&copy; 2026 Leonel Francisco — Instituto de Transportes e Comunicações (ITC).&lt;/<span class="code-tag">p</span>&gt;
+&lt;/<span class="code-tag">footer</span>&gt;
+  </div>
+
+  <div class="output-box">
+    <div class="output-box-title">Resultado Visual (Output da Seção 7)</div>
+    A seção de contactos fecha a coluna principal de conteúdo com sobriedade. Os itens interativos respondem imediatamente ao toque ou clique e o rodapé exibe apenas a informação institucional limpa, sem sobrecargas visuais.
+  </div>
+</div>
+
+<!-- =========================================================
+     5. INTEGRAÇÃO DO CV ORIGINAL EM PDF
+     ========================================================= -->
+<div class="page page-break">
+  <h1 class="section-heading">5. Integração do Curriculum Vitae Original em Formato PDF</h1>
+
+  <p>
+    Um dos requisitos centrais formulados para o portfólio consistiu na disponibilização do <strong>Curriculum Vitae em formato autêntico e fidedigno</strong>. Durante as primeiras iterações do módulo, foi gerado um modelo com formatação automatizada por IA (repleto de caixas azuis, crachás decorativos e estilizações não convencionais), o qual destoava das práticas reais do mercado profissional e das normas de recrutamento.
+  </p>
+
+  <p>
+    Para solucionar esta questão com integridade, o currículo foi reestruturado no ficheiro <code>curriculo.html</code> e impresso digitalmente em PDF oficial A4 (<code>Curriculum_Vitae_Leonel_Francisco.pdf</code>), transcrevendo com fidelidade os dados do documento original (<code>LR[1].docx</code>):
+  </p>
+
+  <div class="note-box">
+    <strong>Estrutura Oficial do Curriculum Vitae Integrado:</strong>
+    <ul style="margin-top: 6px;">
+      <li><strong>Cabeçalho:</strong> Nome completo do formando (<em>Leonel Rachid Francisco</em>).</li>
+      <li><strong>Dados Pessoais:</strong> Residência no Bairro de Infulene A, Maputo; contacto telefónico (+258 84 723 7400); endereço eletrónico oficial e nacionalidade moçambicana.</li>
+      <li><strong>Objectivo Profissional:</strong> Aplicação sólida de conhecimentos práticos em suporte técnico, redes de computadores e manutenção de sistemas informáticos.</li>
+      <li><strong>Formação Académica e Profissional:</strong> Ensino Primário (Escola Primária Machava A, 2021); Ensino Secundário 10.ª Classe (Escola Secundária ADPP, 2024); Curso Técnico de Eletricidade Industrial CV3 (ITC, 2025); Curso Técnico de Suporte Informático CV4 (ITC, 2026); perspectiva de CV5 em 2027.</li>
+      <li><strong>Competências e Línguas:</strong> Manutenção de computadores, redes TCP/IP, Helpdesk, tabela de domínio linguístico (Português fluente e Inglês razoável).</li>
+    </ul>
+  </div>
+
+  <p>
+    Na página web, atendeu-se expressamente ao pedido do formando de <strong>remover o bloco duplicado de currículo que se encontrava acima da seção Sobre Mim</strong>, uma vez que a barra lateral esquerda (<em>sticky sidebar</em>) já conta permanentemente com o botão vermelho de destaque <strong>"Baixar CV"</strong>, garantindo acesso direto sem redundâncias visuais na rolagem da página.
+  </p>
+</div>
+
+<!-- =========================================================
+     6. DESAFIOS ENFRENTADOS E SOLUÇÕES IMPLEMENTADAS
+     ========================================================= -->
+<div class="page page-break">
+  <h1 class="section-heading">6. Desafios Enfrentados e Soluções Técnicas Implementadas</h1>
+
+  <p>
+    Ao longo do desenvolvimento do projeto, deparou-se com desafios técnicos específicos que exigiram análise crítica e aplicação de boas práticas de engenharia web:
+  </p>
+
+  <h2 class="sub-heading">1. Correção do Bug de Tradução da Sigla: VLT vs. LRT</h2>
+  <p>
+    <strong>Diagnóstico do Problema:</strong> Quando utilizadores acediam à página utilizando o navegador Google Chrome em determinados ambientes, a sigla pessoal <strong>LRT</strong> (referente a <em>Leonel Rachid Tamo / Francisco</em>) transformava-se misteriosamente em <strong>VLT</strong>. Após investigação minuciosa, descobriu-se que o motor integrado do Google Tradutor reconhecia "LRT" como o acrônimo de língua inglesa para <em>Light Rail Transit</em> e traduzia-o automaticamente para a expressão equivalente em português: <em>Veículo Leve sobre Trilhos</em> (VLT).
+  </p>
+  <p>
+    <strong>Solução Técnica:</strong> Aplicaram-se camadas robustas de proteção semântica: a inclusão da meta-tag <code>&lt;meta name="google" content="notranslate"&gt;</code> no cabeçalho do documento, a classe nativa <code>class="notranslate"</code> e o atributo universal <code>translate="no"</code> diretamente nas tags que contêm o logotipo e o nome do formando.
+  </p>
+
+  <h2 class="sub-heading">2. Layout Dividido: Perfil Fixo e Rolagem Suave</h2>
+  <p>
+    <strong>Diagnóstico do Problema:</strong> Criar uma experiência na qual o perfil visual permanecesse fixo e estável à esquerda enquanto o corpo da página deslizava suavemente à direita, sem causar quebras em telas móveis ou ocultamento de botões.
+  </p>
+  <p>
+    <strong>Solução Técnica:</strong> Criação de uma grelha CSS no container principal com <code>grid-template-columns: 390px 1fr</code>, definindo <code>position: sticky; top: 98px;</code> na barra lateral, e aplicando <em>Media Queries</em> para que em telas inferiores a 900px o layout se reorganize automaticamente em fluxo linear vertical empilhado (perfil no topo seguido pelas seções).
+  </p>
+
+  <h2 class="sub-heading">3. Efeito Hover com Bordas Verde-Limão (#00ff66)</h2>
+  <p>
+    <strong>Diagnóstico do Problema:</strong> Criar um contraste marcante sobre o tema Dark &amp; Red, garantindo que os elementos interativos reagissem de forma imediata e perceptível ao apontamento do cursor.
+  </p>
+  <p>
+    <strong>Solução Técnica:</strong> Definição da variável <code>--lime-hover: #00ff66;</code> e aplicação uniforme com a pseudoclasse <code>:hover</code> associada a sombras suaves <code>box-shadow: 0 0 16px rgba(0, 255, 102, 0.4);</code> em cartões, botões e ícones.
+  </p>
+</div>
+
+<!-- =========================================================
+     7. CONCLUSÃO E AUTOAVALIAÇÃO
+     ========================================================= -->
+<div class="page page-break">
+  <h1 class="section-heading">7. Conclusão e Autoavaliação da Aprendizagem</h1>
+
+  <p>
+    A conclusão com sucesso do portfólio profissional e deste respectivo relatório técnico representa um marco formativo de elevada significância no percurso curricular da qualificação de <strong>Técnico de Suporte Informático — CV4</strong> no <strong>Instituto de Transportes e Comunicações (ITC)</strong>.
+  </p>
+
+  <p>
+    Durante a execução das atividades práticas do módulo <strong>Construir Páginas Web Estáticas (CPWE)</strong>, foi possível vivenciar em profundidade a transição entre a teoria de linguagens de marcação e o desenvolvimento real de produtos digitais. O domínio do <strong>HTML5</strong> permitiu estruturar os conteúdos com responsabilidade semântica e acessibilidade; o aprofundamento em <strong>CSS3</strong> proporcionou competências sólidas em design moderno, alinhamento flexível, paletas de cores sofisticadas e responsividade para dispositivos móveis; e a incorporação de <strong>JavaScript</strong> enriqueceu a interação com o visitante.
+  </p>
+
+  <p>
+    Como futuro Técnico de Suporte Informático, a aptidão para compreender e manipular a arquitetura web, interpretar linguagens de front-end e solucionar anomalias de apresentação e tradução de navegadores agrega um diferencial competitivo crucial. Esta experiência consolidou valores de rigor técnico, atenção aos detalhes visuais, organização de código-fonte e documentação formal de sistemas.
+  </p>
+
+  <p>
+    Em jeito de autoavaliação, o projeto atendeu integralmente aos objetivos pedagógicos traçados, resultando em uma plataforma digital plenamente operacional, esteticamente sofisticada e acompanhada de um currículo técnico genuíno, pronto para representar o formando com distinção perante o mercado de trabalho e o corpo docente do ITC.
+  </p>
+
+  <h1 class="section-heading" style="margin-top: 36px;">8. Referências Bibliográficas e Webgrafia</h1>
+
+  <ol>
+    <li><strong>MDN Web Docs (Mozilla Developer Network):</strong> <em>HTML: Linguagem de Marcação de Hipertexto e CSS: Folhas de Estilo em Cascata</em>. Disponível em: &lt;https://developer.mozilla.org/pt-BR/&gt;. Acesso em: Outubro de 2026.</li>
+    <li><strong>W3Schools Online Web Tutorials:</strong> <em>HTML5 Semantic Elements, CSS Flexbox and Responsive Web Design</em>. Disponível em: &lt;https://www.w3schools.com/&gt;. Acesso em: Outubro de 2026.</li>
+    <li><strong>CONSELHO NACIONAL DO ENSINO PROFISSIONAL (ANEP):</strong> <em>Plano Curricular de Formação Profissional Baseada em Padrões de Competências — Qualificação em Técnico de Suporte Informático CV4</em>. Maputo, Moçambique.</li>
+    <li><strong>INSTITUTO DE TRANSPORTES E COMUNICAÇÕES (ITC):</strong> <em>Guião Orientador para Elaboração de Trabalhos Práticos e Relatórios de Módulos Técnicos</em>. Maputo, Moçambique.</li>
+  </ol>
+</div>
+
+</body>
+</html>
